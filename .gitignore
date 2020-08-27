@@ -1,0 +1,36 @@
+﻿**/target/
+/logs
+!.mvn/wrapper/maven-wrapper.jar
+node_modules
+
+##前端打包生成文件需要忽略##
+web/portal-h5/app
+web/portal/portal
+**/web/portal/config/*
+web/admin/dist
+web/api/api
+package-lock.json
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/target/
