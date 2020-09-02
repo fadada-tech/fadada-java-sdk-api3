@@ -1,6 +1,5 @@
 package com.fadada.api.utils.http;
 
-import com.fadada.api.FadadaApiConfig;
 import com.fadada.api.bean.rsp.BaseRsp;
 import com.fadada.api.bean.rsp.document.DownLoadFileRsp;
 import com.fadada.api.constants.GlobalConstants;
@@ -35,12 +34,11 @@ import java.util.Map;
  * @author
  */
 public class HttpUtil {
-    private static final FadadaApiConfig FADADA_API_COFIG = new FadadaApiConfig();
-    private static final Integer CONNECT_TIMEOUT = FADADA_API_COFIG.getConnectTimeout();
-    private static final Integer SO_TIMEOUT = FADADA_API_COFIG.getReadTimeout();
-    private static final Boolean PROXY_ON = FADADA_API_COFIG.getProxyFlag();
-    private static final String PROXYHOST = FADADA_API_COFIG.getProxyHost();
-    private static final Integer PROXYPORT = FADADA_API_COFIG.getProxyPort();
+    public static Integer CONNECT_TIMEOUT;
+    public static Integer SO_TIMEOUT;
+    public static Boolean PROXY_ON;
+    public static String PROXYHOST;
+    public static Integer PROXYPORT;
 
 
     private HttpUtil() {
@@ -136,9 +134,7 @@ public class HttpUtil {
      */
     private static HttpPost getHttpPost(String url, Map<String, String> params, Map<String, File> files) {
         HttpPost httpPost = new HttpPost(url);
-        RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(SO_TIMEOUT)
-                .setConnectTimeout(CONNECT_TIMEOUT).build();
-        httpPost.setConfig(requestConfig);
+        httpPost.setConfig(getRequestConfig());
         MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
         if (files != null && !files.isEmpty()) {
             for (Map.Entry<String, File> kv : files.entrySet()) {
@@ -169,9 +165,7 @@ public class HttpUtil {
      */
     private static HttpPost getHttpPost(String url, Map<String, String> params, String charset) throws UnsupportedEncodingException {
         HttpPost httpPost = new HttpPost(url);
-        RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(SO_TIMEOUT)
-                .setConnectTimeout(CONNECT_TIMEOUT).build();
-        httpPost.setConfig(requestConfig);
+        httpPost.setConfig(getRequestConfig());
         if (params != null && !params.isEmpty()) {
             List<NameValuePair> list = new ArrayList<>();
             for (Map.Entry<String, String> entry : params.entrySet()) {
@@ -223,9 +217,7 @@ public class HttpUtil {
                     request.addHeader(entry.getKey(), entry.getValue());
                 }
             }
-
             HttpResponse response = client.execute(request);
-
             if (response.getStatusLine().getStatusCode() == GlobalConstants.SUCCESS_CODE_200) {
                 result = EntityUtils.toString(response.getEntity());
             }
@@ -240,7 +232,6 @@ public class HttpUtil {
                 }
             }
         }
-
         return result;
     }
 
@@ -301,6 +292,24 @@ public class HttpUtil {
         RequestConfig defaultRequestConfig = RequestConfig.custom().setProxy(proxy).build();
         //实例化CloseableHttpClient对象
         return HttpClients.custom().setDefaultRequestConfig(defaultRequestConfig).build();
+    }
+
+    /**
+     * 获取请求配置
+     *
+     * @return
+     */
+    private static RequestConfig getRequestConfig() {
+        RequestConfig.Builder custom = RequestConfig.custom();
+        // 如果请求使劲不为空就设置值，为空就不设置超时时间，默认不设置超时时间
+        if (SO_TIMEOUT != null) {
+            custom.setSocketTimeout(SO_TIMEOUT);
+        }
+        if (CONNECT_TIMEOUT != null) {
+            custom.setConnectTimeout(CONNECT_TIMEOUT);
+        }
+
+        return custom.build();
     }
 
 }

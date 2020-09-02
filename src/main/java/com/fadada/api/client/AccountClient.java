@@ -1,6 +1,7 @@
 package com.fadada.api.client;
 
 import com.fadada.api.FadadaApiClient;
+import com.fadada.api.bean.req.BaseReq;
 import com.fadada.api.bean.req.account.*;
 import com.fadada.api.bean.rsp.BaseRsp;
 import com.fadada.api.bean.rsp.account.*;
@@ -19,6 +20,7 @@ public class AccountClient {
     private static final String GET_COMPANY_UNIONID_URL_PATH = "POST /accounts/getCompanyUnionIdUrl";
     private static final String GET_COMPANY_INFO_PATH = "POST /accounts/getCompanyInfo";
     private static final String CHECK_ACCOUNT_INFO = "POST /accounts/checkAccountInfo";
+    private static final String GET_ACCESS_OBJECT_INFO = "POST /accounts/getAccessObjectInfo";
 
     private FadadaApiClient fadadaApiClient;
 
@@ -92,5 +94,15 @@ public class AccountClient {
     public BaseRsp<CheckAccountInfoRsp> checkAccountInfo(String token, CheckAccountInfoReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(token, req, CHECK_ACCOUNT_INFO, CheckAccountInfoRsp.class);
+    }
+
+    /**
+     * 获取接入方信息
+     *
+     * @param
+     * @return
+     */
+    public BaseRsp<GetAccessObjectInfoRsp> getAccessObjectInfo(String token) throws ApiException {
+        return fadadaApiClient.invokeAPI(token, new BaseReq(), GET_ACCESS_OBJECT_INFO, GetAccessObjectInfoRsp.class);
     }
 }

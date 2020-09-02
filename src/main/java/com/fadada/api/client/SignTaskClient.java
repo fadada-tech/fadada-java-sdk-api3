@@ -118,9 +118,9 @@ public class SignTaskClient {
      * @param req
      * @return
      */
-    public BaseRsp<GetSignUrlRsp> getSignPreviewUrl(String token, GetSignUrlReq req) throws ApiException {
+    public BaseRsp<GetSignPreviewUrlRsp> getSignPreviewUrl(String token, GetSignPreviewUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_SIGN_PREVIEW_URL, GetSignUrlRsp.class);
+        return fadadaApiClient.invokeAPI(token, req, GET_SIGN_PREVIEW_URL, GetSignPreviewUrlRsp.class);
     }
 
 }

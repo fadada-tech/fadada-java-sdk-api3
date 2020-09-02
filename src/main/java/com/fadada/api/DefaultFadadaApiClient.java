@@ -8,8 +8,10 @@ import com.fadada.api.utils.PreconditionsUtil;
 import com.fadada.api.utils.config.SystemConfig;
 import com.fadada.api.utils.crypt.FddCryptUtil;
 import com.fadada.api.utils.date.DateUtil;
+import com.fadada.api.utils.http.HttpUtil;
 import com.fadada.api.utils.json.ParameterizedTypeBaseRsp;
 import com.fadada.api.utils.random.UUIDGenerator;
+import com.fadada.api.utils.string.StringUtil;
 
 import java.io.File;
 import java.sql.Timestamp;
@@ -31,8 +33,6 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
 
 
     private String signType;
-    private int connectTimeout;
-    private int readTimeout;
 
     public void setFadadaApiService(FadadaApiService fadadaApiService) {
         FadadaApiConfig.fadadaApiService = fadadaApiService;
@@ -54,14 +54,17 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
                                   FadadaApiService fadadaApiService) {
         this.appId = appId;
         this.appKey = appKey;
-        this.serverUrl = serverUrl;
+        if (StringUtil.isNotBlank(serverUrl)) {
+            this.serverUrl = serverUrl;
+            SystemConfig.setServerUrl(serverUrl);
+        }
         if (fadadaApiConfig == null) {
             fadadaApiConfig = new FadadaApiConfig();
         }
         this.signType = fadadaApiConfig.getSignType();
-        this.connectTimeout = fadadaApiConfig.getConnectTimeout();
-        this.readTimeout = fadadaApiConfig.getReadTimeout();
-        SystemConfig.setServerUrl(serverUrl);
+        HttpUtil.CONNECT_TIMEOUT = fadadaApiConfig.getConnectTimeout();
+        HttpUtil.SO_TIMEOUT = fadadaApiConfig.getReadTimeout();
+
         if (fadadaApiService != null) {
             setFadadaApiService(fadadaApiService);
         }
@@ -233,22 +236,6 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
 
     public void setSignType(String signType) {
         this.signType = signType;
-    }
-
-    public int getConnectTimeout() {
-        return connectTimeout;
-    }
-
-    public void setConnectTimeout(int connectTimeout) {
-        this.connectTimeout = connectTimeout;
-    }
-
-    public int getReadTimeout() {
-        return readTimeout;
-    }
-
-    public void setReadTimeout(int readTimeout) {
-        this.readTimeout = readTimeout;
     }
 
 }
