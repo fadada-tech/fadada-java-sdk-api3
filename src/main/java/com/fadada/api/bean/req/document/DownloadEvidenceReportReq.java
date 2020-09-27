@@ -24,10 +24,12 @@ public class DownloadEvidenceReportReq extends BaseReq {
     public static class QueryInfo extends BaseBean {
         private String taskId;
 
-        @ParamsVerif(intContains = {1, 2, 3})
+        @ParamsVerif(intContains = {2, 3, 4})
         private Integer type;
 
         private List<String> unionIds;
+
+        private String unionId;
 
         public String getTaskId() {
             return taskId;
@@ -51,6 +53,14 @@ public class DownloadEvidenceReportReq extends BaseReq {
 
         public void setUnionIds(List<String> unionIds) {
             this.unionIds = unionIds;
+        }
+
+        public String getUnionId() {
+            return unionId;
+        }
+
+        public void setUnionId(String unionId) {
+            this.unionId = unionId;
         }
     }
 

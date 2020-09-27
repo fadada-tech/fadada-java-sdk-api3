@@ -13,7 +13,7 @@ import com.fadada.api.bean.req.BaseReq;
  */
 @ParamsVerif
 public class CheckAccountInfoReq extends BaseReq {
-    @ParamsVerif(checkMobile = true, checkNotEmpty = true)
+    @ParamsVerif(checkNotEmpty = true, checkMobile = true)
     private String mobile;
 
     private String personName;

@@ -2,6 +2,7 @@ package com.fadada.api.bean.req.sign.file;
 
 import com.fadada.api.annotation.ParamsVerif;
 import com.fadada.api.bean.BaseBean;
+import com.fadada.api.bean.req.sign.NoticeReq;
 
 import java.util.List;
 

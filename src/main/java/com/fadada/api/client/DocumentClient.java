@@ -18,11 +18,10 @@ import java.util.regex.Pattern;
  * @create 2020-03-07 9:43
  */
 public class DocumentClient {
-    private static final String GET_TEMPLATED_ETAIL_BY_ID = "POST /documents/getTemplateDetailById";
+
     private static final String UPLOAD_FILE = "POST /documents/uploadFile";
     private static final String GET_BY_SIGN_FILE_ID = "POST /documents/getBySignFileId";
     private static final String GET_BY_DRAFT_ID = "POST /documents/getByDraftId";
-    private static final String CREATE_BY_TEMPLATEID = "POST /documents/createByTemplate";
     private static final String LOOK_UP_COORDINATES = "POST /documents/lookUpCoordinates";
     private static final String VERIFY_SIGNATURE = "POST /documents/verifySignature";
     private static final String CONTRACT_REPORT_DOWNLOAD = "POST /documents/professionalContractReportDownload";
@@ -45,18 +44,6 @@ public class DocumentClient {
         this.fadadaApiClient = fadadaApiClient;
     }
 
-    /**
-     * 查询模板详情
-     *
-     * @param token
-     * @param req
-     * @return
-     */
-    public BaseRsp<GetTemplateDetailByIdRsp> getTemplateDetailById(String token, GetTemplateDetailByIdReq req)
-            throws ApiException {
-        PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_TEMPLATED_ETAIL_BY_ID, GetTemplateDetailByIdRsp.class);
-    }
 
     /**
      * 上传文件
@@ -90,16 +77,6 @@ public class DocumentClient {
         return fadadaApiClient.invokeAPIDownload(token, req, GET_BY_DRAFT_ID, DownLoadFileRsp.class);
     }
 
-    /**
-     * 填充模板
-     *
-     * @param req
-     * @return
-     */
-    public BaseRsp<DraftRsp> createByTemplate(String token, CreateByTemplateReq req) throws ApiException {
-        PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, CREATE_BY_TEMPLATEID, DraftRsp.class);
-    }
 
     /**
      * 关键字查询坐标

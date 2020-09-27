@@ -14,7 +14,7 @@ public class GetBySignFileIdReq extends BaseReq {
     /**
      * 任务编号
      **/
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String taskId;
     /**
      * 签署文件编号

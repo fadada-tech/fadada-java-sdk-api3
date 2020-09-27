@@ -14,7 +14,7 @@ public class GetByDraftIdReq extends BaseReq {
     /**
      * 草稿编号
      **/
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String draftId;
     /**
      * 草稿文件编号

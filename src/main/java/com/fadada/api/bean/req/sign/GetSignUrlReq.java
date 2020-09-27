@@ -11,9 +11,9 @@ import com.fadada.api.bean.req.BaseReq;
  */
 @ParamsVerif
 public class GetSignUrlReq extends BaseReq {
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String taskId;
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String unionId;
 
     private String redirectUrl;

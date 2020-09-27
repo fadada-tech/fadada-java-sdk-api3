@@ -14,7 +14,7 @@ public class UploadFileReq extends BaseReq {
     /**
      * 1 合同文件  2 附件
      */
-    @ParamsVerif
+    @ParamsVerif(intContains = {1, 2})
     private Integer fileType;
 
     /**

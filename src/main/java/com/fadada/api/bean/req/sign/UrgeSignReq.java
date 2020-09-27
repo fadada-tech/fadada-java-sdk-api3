@@ -13,7 +13,7 @@ import com.fadada.api.bean.req.BaseReq;
  */
 @ParamsVerif
 public class UrgeSignReq extends BaseReq {
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String taskId;
 
     public String getTaskId() {

@@ -17,7 +17,7 @@ public class CancelSignTaskReq extends BaseReq {
     @ParamsVerif(equalLength = 32)
     private String taskId;
 
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String remark;
 
     public String getTaskId() {

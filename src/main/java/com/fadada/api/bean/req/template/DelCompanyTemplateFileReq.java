@@ -20,7 +20,7 @@ public class DelCompanyTemplateFileReq extends BaseReq {
     @ParamsVerif
     public static class TemplateInfo extends BaseBean {
 
-        @ParamsVerif
+        @ParamsVerif(checkNotEmpty = true)
         private String templateId;
 
         private String fileId;

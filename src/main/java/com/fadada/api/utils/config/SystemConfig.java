@@ -10,7 +10,7 @@ public class SystemConfig {
     private SystemConfig() {
     }
 
-    private static String serverUrl = "https://saas-gw.fadada.com/api/v3/";
+    private static String serverUrl = "https://openapi.fadada.com/api/v3/";
 
 
     public static void setServerUrl(String serverUrl) {

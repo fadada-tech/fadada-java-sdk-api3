@@ -23,7 +23,7 @@ public class LookUpCoordinatesReq extends BaseReq {
         @ParamsVerif(checkNotEmpty = true)
         private String fileId;
 
-        @ParamsVerif(maxLength = 100)
+        @ParamsVerif(checkNotEmpty = true, maxLength = 100)
         private String keyword;
 
         @ParamsVerif(checkNotNull = false, minValue = "0")

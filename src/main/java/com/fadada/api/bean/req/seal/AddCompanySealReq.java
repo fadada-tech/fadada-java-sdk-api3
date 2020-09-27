@@ -29,7 +29,7 @@ public class AddCompanySealReq extends BaseReq {
         /**
          * 签章名称
          */
-        @ParamsVerif(maxLength = 16)
+        @ParamsVerif(checkNotEmpty = true, maxLength = 16)
         private String sealName;
 
         public String getImageHash() {

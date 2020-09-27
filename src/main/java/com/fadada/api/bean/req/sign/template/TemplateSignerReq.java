@@ -1,8 +1,8 @@
 package com.fadada.api.bean.req.sign.template;
 
 import com.fadada.api.annotation.ParamsVerif;
-import com.fadada.api.bean.BaseBean;
-import com.fadada.api.bean.req.sign.file.NoticeReq;
+import com.fadada.api.bean.req.sign.NoticeReq;
+import com.fadada.api.bean.req.sign.batch.SigntaskSignerReq;
 
 /**
  * @author yanghui
@@ -11,9 +11,9 @@ import com.fadada.api.bean.req.sign.file.NoticeReq;
  * @createTime 2020年8月13日 15:27:18
  */
 @ParamsVerif
-public class TemplateSignerReq extends BaseBean {
+public class TemplateSignerReq extends SigntaskSignerReq {
 
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String unionId;
 
     /**
@@ -25,7 +25,7 @@ public class TemplateSignerReq extends BaseBean {
     /**
      * 用户角色 与模板编辑设置得角色匹配
      */
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String templateRoleName;
 
     private String authorizedUnionId;
@@ -41,10 +41,12 @@ public class TemplateSignerReq extends BaseBean {
 
     private int sequence;
 
+    @Override
     public String getUnionId() {
         return unionId;
     }
 
+    @Override
     public void setUnionId(String unionId) {
         this.unionId = unionId;
     }
@@ -73,26 +75,32 @@ public class TemplateSignerReq extends BaseBean {
         this.authorizedUnionId = authorizedUnionId;
     }
 
+    @Override
     public Integer getSignIntendWay() {
         return signIntendWay;
     }
 
+    @Override
     public void setSignIntendWay(Integer signIntendWay) {
         this.signIntendWay = signIntendWay;
     }
 
+    @Override
     public Integer getSignOrder() {
         return signOrder;
     }
 
+    @Override
     public void setSignOrder(Integer signOrder) {
         this.signOrder = signOrder;
     }
 
+    @Override
     public NoticeReq getNotice() {
         return notice;
     }
 
+    @Override
     public void setNotice(NoticeReq notice) {
         this.notice = notice;
     }

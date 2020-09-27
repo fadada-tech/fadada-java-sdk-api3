@@ -1,13 +1,14 @@
 package com.fadada.api.client;
 
 import com.fadada.api.FadadaApiClient;
+import com.fadada.api.bean.req.template.CreateByTemplateReq;
+import com.fadada.api.bean.req.template.GetTemplateDetailByIdReq;
 import com.fadada.api.bean.req.template.*;
 import com.fadada.api.bean.rsp.BaseRsp;
 import com.fadada.api.bean.rsp.document.DownLoadFileRsp;
-import com.fadada.api.bean.rsp.template.GetEditCompanyTemplateUrlRsp;
-import com.fadada.api.bean.rsp.template.QueryCompanyTemplateListRsp;
-import com.fadada.api.bean.rsp.template.UpdateCompanyTemplateRsp;
-import com.fadada.api.bean.rsp.template.UploadCompanyTemplateFileRsp;
+import com.fadada.api.bean.rsp.template.DraftRsp;
+import com.fadada.api.bean.rsp.template.GetTemplateDetailByIdRsp;
+import com.fadada.api.bean.rsp.template.*;
 import com.fadada.api.exception.ApiException;
 import com.fadada.api.utils.PreconditionsUtil;
 import com.fadada.api.utils.crypt.HashFile;
@@ -34,6 +35,8 @@ public class TemplateClient {
     private static final String GET_COMPANY_TEMPLATE_PREVIEW_URL = "POST /template/getCompanyTemplatePreviewUrl";
     private static final String QUERY_COMPANY_TEMPLATE_LIST = "POST /template/queryCompanyTemplateList";
     private static final String DOWNLOAD_COMPANY_TEMPLATE_FILE = "POST /template/downloadCompanyTemplateFile";
+    private static final String GET_TEMPLATED_ETAIL_BY_ID = "POST /documents/getTemplateDetailById";
+    private static final String CREATE_BY_TEMPLATEID = "POST /documents/createByTemplate";
 
 
     /**
@@ -128,10 +131,10 @@ public class TemplateClient {
      * @return
      * @throws ApiException
      */
-    public BaseRsp<GetEditCompanyTemplateUrlRsp> getCompanyTemplatePreviewUrl(String token,
-                                                                              GetEditCompanyTemplateUrlReq req) throws ApiException {
+    public BaseRsp<GetCompanyTemplatePreviewUrlRsp> getCompanyTemplatePreviewUrl(String token,
+                                                                                 GetEditCompanyTemplateUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_COMPANY_TEMPLATE_PREVIEW_URL, GetEditCompanyTemplateUrlRsp.class);
+        return fadadaApiClient.invokeAPI(token, req, GET_COMPANY_TEMPLATE_PREVIEW_URL, GetCompanyTemplatePreviewUrlRsp.class);
     }
 
 
@@ -162,5 +165,31 @@ public class TemplateClient {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPIDownload(token, req, DOWNLOAD_COMPANY_TEMPLATE_FILE, DownLoadFileRsp.class);
     }
+
+    /**
+     * 查询模板详情
+     *
+     * @param token
+     * @param req
+     * @return
+     */
+    public BaseRsp<GetTemplateDetailByIdRsp> getTemplateDetailById(String token, GetTemplateDetailByIdReq req)
+            throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(token, req, GET_TEMPLATED_ETAIL_BY_ID, GetTemplateDetailByIdRsp.class);
+    }
+
+
+    /**
+     * 填充模板
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp<DraftRsp> createByTemplate(String token, CreateByTemplateReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(token, req, CREATE_BY_TEMPLATEID, DraftRsp.class);
+    }
+
 
 }

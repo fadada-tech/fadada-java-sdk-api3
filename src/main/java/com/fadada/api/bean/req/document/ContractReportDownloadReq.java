@@ -20,7 +20,7 @@ public class ContractReportDownloadReq extends BaseReq {
     @ParamsVerif
     public static class ContractInfo extends BaseBean {
 
-        @ParamsVerif
+        @ParamsVerif(checkNotEmpty = true)
         private String taskId;
 
         public String getTaskId() {

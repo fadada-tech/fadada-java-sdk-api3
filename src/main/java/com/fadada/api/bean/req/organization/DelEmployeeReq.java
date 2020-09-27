@@ -28,7 +28,7 @@ public class DelEmployeeReq extends BaseReq {
         /**
          * 员工unionId
          */
-        @ParamsVerif(maxLength = 32)
+        @ParamsVerif(checkNotEmpty = true, maxLength = 32)
         private String unionId;
 
         public String getUnionId() {

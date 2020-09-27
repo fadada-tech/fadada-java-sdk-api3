@@ -9,11 +9,11 @@ import com.fadada.api.bean.req.BaseReq;
  */
 @ParamsVerif
 public class GetAuthorizeUrlReq extends BaseReq {
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String unionId;
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String redirectUrl;
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String scope;
 
     public String getUnionId() {

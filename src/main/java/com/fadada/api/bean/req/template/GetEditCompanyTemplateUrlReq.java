@@ -20,7 +20,7 @@ public class GetEditCompanyTemplateUrlReq extends BaseReq {
     @ParamsVerif
     public static class TemplateInfo extends BaseBean {
 
-        @ParamsVerif
+        @ParamsVerif(checkNotEmpty = true)
         private String templateId;
 
         public String getTemplateId() {

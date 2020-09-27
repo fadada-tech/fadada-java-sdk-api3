@@ -13,7 +13,7 @@ import com.fadada.api.bean.req.BaseReq;
  */
 @ParamsVerif
 public class GetSentUrlReq extends BaseReq {
-    @ParamsVerif(equalLength = 32)
+    @ParamsVerif(checkNotEmpty = true, equalLength = 32)
     private String taskId;
 
     public String getTaskId() {

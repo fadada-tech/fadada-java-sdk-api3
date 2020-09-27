@@ -21,6 +21,26 @@ public class SigntaskDetailRes extends BaseBean {
      * 签署结果描述
      **/
     private String resultDesc;
+    /**
+     * 手机号码
+     */
+    private String mobile;
+    /**
+     * 姓名
+     */
+    private String personName;
+    /**
+     * 企业名称
+     */
+    private String companyName;
+    /**
+     * 授权unionId
+     */
+    private String authorizedUnionId;
+    /**
+     * 签署顺序
+     */
+    private Integer signOrder;
 
     public String getUnionId() {
         return unionId;
@@ -44,5 +64,45 @@ public class SigntaskDetailRes extends BaseBean {
 
     public void setResultDesc(String resultDesc) {
         this.resultDesc = resultDesc;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getPersonName() {
+        return personName;
+    }
+
+    public void setPersonName(String personName) {
+        this.personName = personName;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getAuthorizedUnionId() {
+        return authorizedUnionId;
+    }
+
+    public void setAuthorizedUnionId(String authorizedUnionId) {
+        this.authorizedUnionId = authorizedUnionId;
+    }
+
+    public Integer getSignOrder() {
+        return signOrder;
+    }
+
+    public void setSignOrder(Integer signOrder) {
+        this.signOrder = signOrder;
     }
 }

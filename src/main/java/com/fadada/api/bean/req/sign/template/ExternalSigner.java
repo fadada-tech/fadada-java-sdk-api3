@@ -12,7 +12,7 @@ import com.fadada.api.bean.BaseBean;
 @ParamsVerif
 public class ExternalSigner extends BaseBean {
 
-    @ParamsVerif(checkMobile = true)
+    @ParamsVerif(checkNotEmpty = true, checkMobile = true)
     private String mobile;
 
     @ParamsVerif(checkNotNull = false, maxLength = 50)
@@ -20,6 +20,7 @@ public class ExternalSigner extends BaseBean {
 
     @ParamsVerif(checkNotNull = false, maxLength = 100)
     private String companyName;
+
 
     public String getMobile() {
         return mobile;

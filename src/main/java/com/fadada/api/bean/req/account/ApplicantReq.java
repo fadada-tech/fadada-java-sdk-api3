@@ -12,14 +12,14 @@ import com.fadada.api.bean.BaseBean;
 @ParamsVerif
 public class ApplicantReq extends BaseBean {
 
-    @ParamsVerif(maxLength = 32)
+    @ParamsVerif(checkNotEmpty = true, maxLength = 32)
     private String unionId;
 
     /**
-     * 申请人身份1：法人 2：代理人 如果type为2时生效，默认为1
+     * 申请人身份1：法人 2：代理人
      */
     @ParamsVerif(checkNotNull = false, intContains = {1, 2})
-    private Integer applicantType = 1;
+    private Integer applicantType;
 
     public String getUnionId() {
         return unionId;

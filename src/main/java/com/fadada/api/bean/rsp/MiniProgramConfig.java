@@ -1,5 +1,7 @@
 package com.fadada.api.bean.rsp;
 
+import com.fadada.api.bean.BaseBean;
+
 /**
  * @author yanghui
  * @version 1.0.0
@@ -8,7 +10,7 @@ package com.fadada.api.bean.rsp;
  * @Param
  * @createTime 2020年08月18日 17:51:00
  */
-public class MiniProgramConfig {
+public class MiniProgramConfig extends BaseBean {
 
     private String appId;
     private String path;

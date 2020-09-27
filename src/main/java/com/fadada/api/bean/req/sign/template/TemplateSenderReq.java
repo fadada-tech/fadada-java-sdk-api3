@@ -2,7 +2,7 @@ package com.fadada.api.bean.req.sign.template;
 
 import com.fadada.api.annotation.ParamsVerif;
 import com.fadada.api.bean.BaseBean;
-import com.fadada.api.bean.req.sign.file.NoticeReq;
+import com.fadada.api.bean.req.sign.NoticeReq;
 
 /**
  * @author yanghui
@@ -22,7 +22,7 @@ public class TemplateSenderReq extends BaseBean {
     @ParamsVerif(checkNotNull = false, intContains = {0, 1})
     private Integer signWay;
 
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String templateRoleName;
 
     @ParamsVerif(checkNotNull = false)

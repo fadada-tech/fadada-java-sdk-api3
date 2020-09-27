@@ -9,7 +9,7 @@ import com.fadada.api.bean.req.BaseReq;
  */
 @ParamsVerif
 public class GetCompanyInfoReq extends BaseReq {
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String unionId;
 
     public String getUnionId() {

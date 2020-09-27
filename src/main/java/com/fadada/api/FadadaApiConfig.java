@@ -14,11 +14,11 @@ public class FadadaApiConfig {
     /**
      * http连接超时时间
      */
-    private int connectTimeout = 10 * 1000;
+    private int connectTimeout;
     /**
      * http读超时时间
      */
-    private int readTimeout = 10 * 1000;
+    private int readTimeout;
     /**
      * http是否打开代理
      */

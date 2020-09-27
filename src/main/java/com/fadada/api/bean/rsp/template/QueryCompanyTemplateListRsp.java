@@ -51,6 +51,8 @@ public class QueryCompanyTemplateListRsp extends BaseBean {
          */
         private String creatorName;
 
+        private Integer templateStatus;
+
         public String getTemplateId() {
             return templateId;
         }
@@ -89,6 +91,14 @@ public class QueryCompanyTemplateListRsp extends BaseBean {
 
         public void setCreatorName(String creatorName) {
             this.creatorName = creatorName;
+        }
+
+        public Integer getTemplateStatus() {
+            return templateStatus;
+        }
+
+        public void setTemplateStatus(Integer templateStatus) {
+            this.templateStatus = templateStatus;
         }
     }
 

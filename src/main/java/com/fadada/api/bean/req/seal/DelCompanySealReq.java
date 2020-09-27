@@ -23,19 +23,19 @@ public class DelCompanySealReq extends BaseReq {
      */
     @ParamsVerif
     public static class SealInfo extends BaseBean {
-        @ParamsVerif
-        private Long sealId;
+        @ParamsVerif(checkNotEmpty = true)
+        private String sealId;
 
-        public Long getSealId() {
+        public String getSealId() {
             return sealId;
         }
 
-        public void setSealId(Long sealId) {
+        public void setSealId(String sealId) {
             this.sealId = sealId;
         }
     }
 
-    public void setSealInfo(Long sealId) {
+    public void setSealInfo(String sealId) {
         if (sealInfo == null) {
             sealInfo = new SealInfo();
         }

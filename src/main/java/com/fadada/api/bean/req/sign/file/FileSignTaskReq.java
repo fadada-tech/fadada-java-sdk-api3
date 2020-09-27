@@ -18,7 +18,7 @@ public class FileSignTaskReq extends BaseReq {
     /**
      * 任务主题
      */
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String taskSubject;
 
     /**

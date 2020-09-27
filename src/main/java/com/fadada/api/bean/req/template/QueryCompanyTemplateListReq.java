@@ -18,6 +18,8 @@ public class QueryCompanyTemplateListReq extends BaseReq {
 
     @ParamsVerif
     public static class QueryInfo extends BaseBean {
+        @ParamsVerif(checkNotNull = false, intContains = {1, 2, 3})
+        private Integer templateStatus;
 
         @ParamsVerif(minValue = "1")
         private Integer currentPageNo;
@@ -51,6 +53,14 @@ public class QueryCompanyTemplateListReq extends BaseReq {
 
         public void setKeyword(String keyword) {
             this.keyword = keyword;
+        }
+
+        public Integer getTemplateStatus() {
+            return templateStatus;
+        }
+
+        public void setTemplateStatus(Integer templateStatus) {
+            this.templateStatus = templateStatus;
         }
     }
 

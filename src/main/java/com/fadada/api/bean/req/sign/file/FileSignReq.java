@@ -16,7 +16,7 @@ public class FileSignReq extends BaseBean {
     /**
      * 文件编号
      */
-    @ParamsVerif(maxLength = 20)
+    @ParamsVerif(checkNotEmpty = true, maxLength = 20)
     private String fileId;
     /**
      * 签署位置

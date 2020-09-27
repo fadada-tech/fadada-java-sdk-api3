@@ -12,7 +12,7 @@ import com.fadada.api.bean.req.BaseReq;
  */
 @ParamsVerif
 public class GetPersonUnionIdUrlReq extends BaseReq {
-    @ParamsVerif(maxLength = 64)
+    @ParamsVerif(checkNotEmpty = true, maxLength = 64)
     private String clientId;
 
     @ParamsVerif(checkNotNull = false)

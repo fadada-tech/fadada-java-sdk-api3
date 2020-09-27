@@ -17,17 +17,17 @@ public class CreateByDraftIdReq extends BaseReq {
     /**
      * 主题
      */
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String taskSubject;
     /**
      * 临时任务id
      */
-    @ParamsVerif
+    @ParamsVerif(checkNotEmpty = true)
     private String draftId;
-    @ParamsVerif(strContains = {"create", "sent"})
     /**
      * 默认 sent
      */
+    @ParamsVerif(strContains = {"create", "sent"})
     private String status;
 
     @ParamsVerif(intContains = {1, 2})

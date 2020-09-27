@@ -25,14 +25,14 @@ public class SealAuthReq extends BaseReq {
      */
     @ParamsVerif
     public static class SealInfo extends BaseBean {
-        @ParamsVerif
-        private Long sealId;
+        @ParamsVerif(checkNotEmpty = true)
+        private String sealId;
 
-        public Long getSealId() {
+        public String getSealId() {
             return sealId;
         }
 
-        public void setSealId(Long sealId) {
+        public void setSealId(String sealId) {
             this.sealId = sealId;
         }
     }
@@ -45,7 +45,7 @@ public class SealAuthReq extends BaseReq {
         /**
          * 员工unionId
          */
-        @ParamsVerif(maxLength = 32)
+        @ParamsVerif(checkNotEmpty = true, maxLength = 32)
         private String unionId;
 
         public String getUnionId() {
@@ -57,7 +57,7 @@ public class SealAuthReq extends BaseReq {
         }
     }
 
-    public void setSealInfo(Long sealId) {
+    public void setSealInfo(String sealId) {
         if (sealInfo == null) {
             sealInfo = new SealInfo();
         }
