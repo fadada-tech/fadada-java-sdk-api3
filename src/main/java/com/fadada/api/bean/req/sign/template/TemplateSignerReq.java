@@ -13,7 +13,6 @@ import com.fadada.api.bean.req.sign.batch.SigntaskSignerReq;
 @ParamsVerif
 public class TemplateSignerReq extends SigntaskSignerReq {
 
-    @ParamsVerif(checkNotEmpty = true)
     private String unionId;
 
     /**
