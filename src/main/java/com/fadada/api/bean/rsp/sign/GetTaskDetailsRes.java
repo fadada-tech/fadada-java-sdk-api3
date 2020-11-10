@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className GetTaskDetailsRes
  * @description 签署任务详请
  * @createTime 2020年8月13日 15:15:24

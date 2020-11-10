@@ -3,7 +3,7 @@ package com.fadada.api.bean.rsp.sign.batch;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName BatchGetSignUrlRsp.java
  * @Description 批次号签署链接信息

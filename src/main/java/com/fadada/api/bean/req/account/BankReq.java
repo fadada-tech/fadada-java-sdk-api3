@@ -4,7 +4,7 @@ import com.fadada.api.annotation.ParamsVerif;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName BankReq.java
  * @Description 银行相关信息

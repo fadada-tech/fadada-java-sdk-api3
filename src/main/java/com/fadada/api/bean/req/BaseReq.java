@@ -9,17 +9,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 public class BaseReq extends BaseBean {
     @JsonIgnore
-    private String nonce;
-    @JsonIgnore
     private String token;
-
-    public String getNonce() {
-        return nonce;
-    }
-
-    public void setNonce(String nonce) {
-        this.nonce = nonce;
-    }
+    @JsonIgnore
+    private String userToken;
 
     public String getToken() {
         return token;
@@ -27,5 +19,13 @@ public class BaseReq extends BaseBean {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getUserToken() {
+        return userToken;
+    }
+
+    public void setUserToken(String userToken) {
+        this.userToken = userToken;
     }
 }

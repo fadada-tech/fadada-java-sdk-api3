@@ -6,7 +6,7 @@ import com.fadada.api.bean.rsp.document.DraftFileRsp;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className DraftRsp
  * @description 草稿返回对象
  * @createTime 2020年8月13日 15:12:56

@@ -5,7 +5,7 @@ import com.fadada.api.annotation.ParamsVerif;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className SignHereReq
  * @description 签署位置信息
  * @createTime 2020年8月13日 15:33:35

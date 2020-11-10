@@ -7,7 +7,7 @@ import com.fadada.api.bean.req.BaseReq;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName BatchCreateByDraftIdReq.java
  * @Description 创建批次号任务

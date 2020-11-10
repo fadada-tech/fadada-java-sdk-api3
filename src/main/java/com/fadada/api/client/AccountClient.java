@@ -13,14 +13,20 @@ import com.fadada.api.utils.PreconditionsUtil;
  * @create 2020-03-07 9:43
  */
 public class AccountClient {
-    private static final String GET_AUTHORIZE_URL_PATH = "POST /oauth2/getAuthorizeUrl";
 
-    private static final String GET_PERSON_UNIONID_URL_PATH = "POST /accounts/getPersonUnionIdUrl";
-    private static final String GET_PERSON_INFO_PATH = "POST /accounts/getPersonInfo";
-    private static final String GET_COMPANY_UNIONID_URL_PATH = "POST /accounts/getCompanyUnionIdUrl";
-    private static final String GET_COMPANY_INFO_PATH = "POST /accounts/getCompanyInfo";
-    private static final String CHECK_ACCOUNT_INFO = "POST /accounts/checkAccountInfo";
-    private static final String GET_ACCESS_OBJECT_INFO = "POST /accounts/getAccessObjectInfo";
+    private static final String GET_PERSON_UNIONID_URL_PATH = "POST accounts/getPersonUnionIdUrl";
+    private static final String GET_PERSON_INFO_PATH = "POST accounts/getPersonInfo";
+    private static final String GET_COMPANY_UNIONID_URL_PATH = "POST accounts/getCompanyUnionIdUrl";
+    private static final String GET_COMPANY_INFO_PATH = "POST accounts/getCompanyInfo";
+    private static final String CHECK_ACCOUNT_INFO = "POST accounts/checkAccountInfo";
+    private static final String GET_ACCESS_OBJECT_INFO = "POST accounts/getAccessObjectInfo";
+
+    /**
+     * 第三方应用操作
+     */
+    private static final String GET_OPEN_SERVERURL = "POST thirdUser/getOpenServerUrl";
+    private static final String GET_USER_TOKEN = "POST thirdUser/getUserToken";
+    private static final String CANCE_SERVER = "POST thirdUser/cancel";
 
     private FadadaApiClient fadadaApiClient;
 
@@ -28,16 +34,6 @@ public class AccountClient {
         this.fadadaApiClient = fadadaApiClient;
     }
 
-    /**
-     * 获取授权地址
-     *
-     * @param req
-     * @return
-     */
-    public BaseRsp<GetAuthorizeUrlRsp> getAuthorizeUrl(String token, GetAuthorizeUrlReq req) throws ApiException {
-        PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_AUTHORIZE_URL_PATH, GetAuthorizeUrlRsp.class);
-    }
 
     /**
      * 获取个人uinonid
@@ -45,9 +41,9 @@ public class AccountClient {
      * @param req
      * @return
      */
-    public BaseRsp<GetUnionIdUrlRsp> getPersonUnionIdUrl(String token, GetPersonUnionIdUrlReq req) throws ApiException {
+    public BaseRsp<GetUnionIdUrlRsp> getPersonUnionIdUrl(GetPersonUnionIdUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_PERSON_UNIONID_URL_PATH, GetUnionIdUrlRsp.class);
+        return fadadaApiClient.invokeAPI(req, GET_PERSON_UNIONID_URL_PATH, GetUnionIdUrlRsp.class);
     }
 
     /**
@@ -56,9 +52,9 @@ public class AccountClient {
      * @param req
      * @return
      */
-    public BaseRsp<GetPersonInfoRsp> getPersonInfo(String token, GetPersonInfoReq req) throws ApiException {
+    public BaseRsp<GetPersonInfoRsp> getPersonInfo(GetPersonInfoReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_PERSON_INFO_PATH, GetPersonInfoRsp.class);
+        return fadadaApiClient.invokeAPI(req, GET_PERSON_INFO_PATH, GetPersonInfoRsp.class);
     }
 
 
@@ -68,10 +64,10 @@ public class AccountClient {
      * @param req
      * @return
      */
-    public BaseRsp<GetUnionIdUrlRsp> getCompanyUnionIdUrl(String token, GetCompanyUnionIdUrlReq req)
+    public BaseRsp<GetUnionIdUrlRsp> getCompanyUnionIdUrl(GetCompanyUnionIdUrlReq req)
             throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_COMPANY_UNIONID_URL_PATH, GetUnionIdUrlRsp.class);
+        return fadadaApiClient.invokeAPI(req, GET_COMPANY_UNIONID_URL_PATH, GetUnionIdUrlRsp.class);
     }
 
     /**
@@ -80,9 +76,9 @@ public class AccountClient {
      * @param req
      * @return
      */
-    public BaseRsp<GetCompanyInfoRsp> getCompanyInfo(String token, GetCompanyInfoReq req) throws ApiException {
+    public BaseRsp<GetCompanyInfoRsp> getCompanyInfo(GetCompanyInfoReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_COMPANY_INFO_PATH, GetCompanyInfoRsp.class);
+        return fadadaApiClient.invokeAPI(req, GET_COMPANY_INFO_PATH, GetCompanyInfoRsp.class);
     }
 
     /**
@@ -91,9 +87,9 @@ public class AccountClient {
      * @param req
      * @return
      */
-    public BaseRsp<CheckAccountInfoRsp> checkAccountInfo(String token, CheckAccountInfoReq req) throws ApiException {
+    public BaseRsp<CheckAccountInfoRsp> checkAccountInfo(CheckAccountInfoReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, CHECK_ACCOUNT_INFO, CheckAccountInfoRsp.class);
+        return fadadaApiClient.invokeAPI(req, CHECK_ACCOUNT_INFO, CheckAccountInfoRsp.class);
     }
 
     /**
@@ -102,7 +98,44 @@ public class AccountClient {
      * @param
      * @return
      */
-    public BaseRsp<GetAccessObjectInfoRsp> getAccessObjectInfo(String token) throws ApiException {
-        return fadadaApiClient.invokeAPI(token, new BaseReq(), GET_ACCESS_OBJECT_INFO, GetAccessObjectInfoRsp.class);
+    public BaseRsp<GetAccessObjectInfoRsp> getAccessObjectInfo(BaseReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, GET_ACCESS_OBJECT_INFO, GetAccessObjectInfoRsp.class);
+    }
+
+    /**
+     * 获取第三方授权地址
+     *
+     * @param req
+     * @return
+     * @throws ApiException
+     */
+    public BaseRsp<GetOpenServerUrlRsp> getOpenServerUrl(GetOpenServerUrlReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, GET_OPEN_SERVERURL, GetOpenServerUrlRsp.class);
+    }
+
+    /**
+     * 获取userToken
+     *
+     * @param req
+     * @return
+     * @throws ApiException
+     */
+    public BaseRsp<GetUserTokenRsp> getUserToken(GetUserTokenReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, GET_USER_TOKEN, GetUserTokenRsp.class);
+    }
+
+    /**
+     * 取消第三方授权
+     *
+     * @param req
+     * @return
+     * @throws ApiException
+     */
+    public BaseRsp cancelServer(CancelServerReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, CANCE_SERVER, String.class);
     }
 }

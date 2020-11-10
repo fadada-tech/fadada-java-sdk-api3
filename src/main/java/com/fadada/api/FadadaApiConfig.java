@@ -1,7 +1,7 @@
 package com.fadada.api;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className FadadaApiConfig
  * @description 请求的配置信息
  * @createTime 2020年8月13日 15:31:04

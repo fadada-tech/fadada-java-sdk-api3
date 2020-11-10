@@ -3,7 +3,7 @@ package com.fadada.api.bean.req.sign.batch;
 import com.fadada.api.annotation.ParamsVerif;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName TemplateSenderReq.java
  * @Description 模板发送人信息

@@ -4,7 +4,7 @@ import com.fadada.api.annotation.ParamsVerif;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className NoticeReq
  * @description 发送短信请求对象
  * @createTime 2020年8月13日 15:20:00

@@ -4,7 +4,7 @@ package com.fadada.api.bean.rsp.document;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className TemplateTargetRsp
  * @description 模板target信息
  * @createTime 2020年9月7日 19:35:20

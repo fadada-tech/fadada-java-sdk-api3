@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName SealAuthReq.java
  * @Description 授权请求对象
@@ -19,6 +19,9 @@ public class SealAuthReq extends BaseReq {
 
     @ParamsVerif
     private EmployeeInfo employeeInfo;
+
+    @ParamsVerif(checkNotNull = false)
+    private OwnerInfo owner;
 
     /**
      * 签章信息
@@ -47,6 +50,11 @@ public class SealAuthReq extends BaseReq {
          */
         @ParamsVerif(checkNotEmpty = true, maxLength = 32)
         private String unionId;
+        /**
+         * 印章所属方
+         */
+        @ParamsVerif(checkNotNull = false, maxLength = 32)
+        private String companyUnionId;
 
         public String getUnionId() {
             return unionId;
@@ -55,20 +63,14 @@ public class SealAuthReq extends BaseReq {
         public void setUnionId(String unionId) {
             this.unionId = unionId;
         }
-    }
 
-    public void setSealInfo(String sealId) {
-        if (sealInfo == null) {
-            sealInfo = new SealInfo();
+        public String getCompanyUnionId() {
+            return companyUnionId;
         }
-        sealInfo.setSealId(sealId);
-    }
 
-    public void setEmployeeInfo(String unionId) {
-        if (employeeInfo == null) {
-            employeeInfo = new EmployeeInfo();
+        public void setCompanyUnionId(String companyUnionId) {
+            this.companyUnionId = companyUnionId;
         }
-        employeeInfo.setUnionId(unionId);
     }
 
     public SealInfo getSealInfo() {
@@ -85,5 +87,13 @@ public class SealAuthReq extends BaseReq {
 
     public void setEmployeeInfo(EmployeeInfo employeeInfo) {
         this.employeeInfo = employeeInfo;
+    }
+
+    public OwnerInfo getOwner() {
+        return owner;
+    }
+
+    public void setOwner(OwnerInfo owner) {
+        this.owner = owner;
     }
 }

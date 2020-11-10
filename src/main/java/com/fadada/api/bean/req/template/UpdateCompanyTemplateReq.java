@@ -7,7 +7,7 @@ import com.fadada.api.bean.req.BaseReq;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName UpdateCompanyTemplateReq.java
  * @Description 修改企业模板信息请求对象

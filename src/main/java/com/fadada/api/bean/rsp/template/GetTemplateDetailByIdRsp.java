@@ -7,7 +7,7 @@ import com.fadada.api.bean.rsp.vo.UnfillTemplateFile;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className GetTemplateDetailByIdRsp
  * @description 模板详请返回对象
  * @createTime 2020年8月13日 15:13:25

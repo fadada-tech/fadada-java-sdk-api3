@@ -5,7 +5,7 @@ import com.fadada.api.annotation.ParamsVerif;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className GetPersonUnionIdUrlReq
  * @description 获取个人unionId地址请求对象
  * @createTime 2020年8月13日 15:19:20

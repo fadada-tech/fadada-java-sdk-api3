@@ -4,7 +4,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.rsp.vo.Person;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className GetPersonInfoRsp
  * @description 获取个人信息返回对象
  * @createTime 2020年8月13日 15:11:05

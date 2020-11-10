@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName DelEmployeeReq.java
  * @Description 删除员工请求对象

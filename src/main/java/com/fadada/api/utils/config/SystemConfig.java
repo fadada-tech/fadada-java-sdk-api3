@@ -1,7 +1,7 @@
 package com.fadada.api.utils.config;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className SystemConfig
  * @description 解析配置文件信息
  * @createTime 2020年8月13日 15:33:58

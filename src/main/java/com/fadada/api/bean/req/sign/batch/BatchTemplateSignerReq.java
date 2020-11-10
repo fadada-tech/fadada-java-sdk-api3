@@ -4,7 +4,7 @@ import com.fadada.api.annotation.ParamsVerif;
 import com.fadada.api.bean.req.sign.template.ExternalSigner;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className BatchTemplateSignerReq
  * @description 模板签署人信息
  * @createTime 2020年9月8日 10:37:33

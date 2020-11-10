@@ -18,23 +18,24 @@ import com.fadada.api.utils.PreconditionsUtil;
  * @create 2020-03-07 9:43
  */
 public class SignTaskClient {
-    private static final String SIGNTASKS_CREATE_BY_FILE = "POST /signtasks/createByFile";
-    private static final String SIGNTASKS_CREATE_BY_DRAFT_ID = "POST /signtasks/createByDraftId";
-    private static final String GET_SIGN_URL = "POST /signtasks/getSignUrl";
-    private static final String GET_TASK_DETAIL_BY_TASK_ID = "POST /signtasks/getTaskDetailByTaskId";
-    private static final String CANCEL = "POST /signtasks/cancel";
-    private static final String GET_SENT_URL = "POST /signtasks/getSentUrl";
-    private static final String URGE_SIGN = "POST /signtasks/urgeSign";
-    private static final String GET_SIGN_PREVIEW_URL = "POST /signtasks/getSignPreviewUrl";
+    private static final String SIGNTASKS_CREATE_BY_FILE = "POST signtasks/createByFile";
+    private static final String SIGNTASKS_CREATE_BY_DRAFT_ID = "POST signtasks/createByDraftId";
+    private static final String GET_SIGN_URL = "POST signtasks/getSignUrl";
+    private static final String GET_TASK_DETAIL_BY_TASK_ID = "POST signtasks/getTaskDetailByTaskId";
+    private static final String CANCEL = "POST signtasks/cancel";
+    private static final String GET_SENT_URL = "POST signtasks/getSentUrl";
+    private static final String URGE_SIGN = "POST signtasks/urgeSign";
+    private static final String GET_SIGN_PREVIEW_URL = "POST signtasks/getSignPreviewUrl";
+    private static final String CREATE_TASK_BY_FILE = "POST signtasks/createTaskByFile";
 
     /**
      * 批次号任务
      */
-    private static final String BATCH_CREATE_BY_DRAFT_ID = "POST /batch/signtasks/createByDraftId";
-    private static final String BATCH_SENT = "POST /batch/signtasks/sent";
-    private static final String BATCH_ADD_BY_DRAFT_ID = "POST /batch/signtasks/addByDraftId";
-    private static final String BATCH_GET_SIGN_URL = "POST /batch/signtasks/getSignUrl";
-    private static final String BATCH_GET_SIGNTASKS_BY_BATCH_NO = "POST /batch/signtasks/getSigntasksByBatchNo";
+    private static final String BATCH_CREATE_BY_DRAFT_ID = "POST batch/signtasks/createByDraftId";
+    private static final String BATCH_SENT = "POST batch/signtasks/sent";
+    private static final String BATCH_ADD_BY_DRAFT_ID = "POST batch/signtasks/addByDraftId";
+    private static final String BATCH_GET_SIGN_URL = "POST batch/signtasks/getSignUrl";
+    private static final String BATCH_GET_SIGNTASKS_BY_BATCH_NO = "POST batch/signtasks/getSigntasksByBatchNo";
 
     private FadadaApiClient fadadaApiClient;
 
@@ -48,9 +49,9 @@ public class SignTaskClient {
      * @param req
      * @return
      */
-    public BaseRsp<FileSignTaskRsp> createSignTaskByFileId(String token, FileSignTaskReq req) throws ApiException {
+    public BaseRsp<FileSignTaskRsp> createSignTaskByFileId(FileSignTaskReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, SIGNTASKS_CREATE_BY_FILE, FileSignTaskRsp.class);
+        return fadadaApiClient.invokeAPI(req, SIGNTASKS_CREATE_BY_FILE, FileSignTaskRsp.class);
     }
 
     /**
@@ -59,10 +60,10 @@ public class SignTaskClient {
      * @param req
      * @return
      */
-    public BaseRsp<TemplateSignTaskRsp> createSignTaskByDraftId(String token, CreateByDraftIdReq req)
+    public BaseRsp<TemplateSignTaskRsp> createSignTaskByDraftId(CreateByDraftIdReq req)
             throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, SIGNTASKS_CREATE_BY_DRAFT_ID, TemplateSignTaskRsp.class);
+        return fadadaApiClient.invokeAPI(req, SIGNTASKS_CREATE_BY_DRAFT_ID, TemplateSignTaskRsp.class);
     }
 
     /**
@@ -71,9 +72,9 @@ public class SignTaskClient {
      * @param req
      * @return
      */
-    public BaseRsp<GetSignUrlRsp> getSignUrl(String token, GetSignUrlReq req) throws ApiException {
+    public BaseRsp<GetSignUrlRsp> getSignUrl(GetSignUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_SIGN_URL, GetSignUrlRsp.class);
+        return fadadaApiClient.invokeAPI(req, GET_SIGN_URL, GetSignUrlRsp.class);
     }
 
 
@@ -83,45 +84,42 @@ public class SignTaskClient {
      * @param req
      * @return
      */
-    public BaseRsp<GetTaskDetailsRes> getTaskDetailByTaskId(String token, GetTaskDetailReq req) throws ApiException {
+    public BaseRsp<GetTaskDetailsRes> getTaskDetailByTaskId(GetTaskDetailReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_TASK_DETAIL_BY_TASK_ID, GetTaskDetailsRes.class);
+        return fadadaApiClient.invokeAPI(req, GET_TASK_DETAIL_BY_TASK_ID, GetTaskDetailsRes.class);
     }
 
     /**
      * 撤销签署任务
      *
-     * @param token
      * @param req
      * @return
      */
-    public BaseRsp cancelSignTask(String token, CancelSignTaskReq req) throws ApiException {
+    public BaseRsp cancelSignTask(CancelSignTaskReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, CANCEL, Object.class);
+        return fadadaApiClient.invokeAPI(req, CANCEL, Object.class);
     }
 
     /**
      * 获取签署任务发起链接
      *
-     * @param token
      * @param req
      * @return
      */
-    public BaseRsp<GetSentUrlRsp> getSentUrl(String token, GetSentUrlReq req) throws ApiException {
+    public BaseRsp<GetSentUrlRsp> getSentUrl(GetSentUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_SENT_URL, GetSentUrlRsp.class);
+        return fadadaApiClient.invokeAPI(req, GET_SENT_URL, GetSentUrlRsp.class);
     }
 
     /**
      * 催签
      *
-     * @param token
      * @param req
      * @return
      */
-    public BaseRsp urgeSign(String token, UrgeSignReq req) throws ApiException {
+    public BaseRsp urgeSign(UrgeSignReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, URGE_SIGN, String.class);
+        return fadadaApiClient.invokeAPI(req, URGE_SIGN, String.class);
     }
 
     /**
@@ -130,71 +128,78 @@ public class SignTaskClient {
      * @param req
      * @return
      */
-    public BaseRsp<GetSignPreviewUrlRsp> getSignPreviewUrl(String token, GetSignPreviewUrlReq req) throws ApiException {
+    public BaseRsp<GetSignPreviewUrlRsp> getSignPreviewUrl(GetSignPreviewUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, GET_SIGN_PREVIEW_URL, GetSignPreviewUrlRsp.class);
+        return fadadaApiClient.invokeAPI(req, GET_SIGN_PREVIEW_URL, GetSignPreviewUrlRsp.class);
+    }
+
+    /**
+     * 依据原始文件创建签署任务
+     *
+     * @param req
+     * @return
+     * @throws ApiException
+     */
+    public BaseRsp<CreateTaskByFileRsp> createTaskByFile(CreateTaskByFileReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, CREATE_TASK_BY_FILE, CreateTaskByFileRsp.class);
     }
 
     /**
      * 依据草稿id批量创建签署任务
      *
-     * @param token
      * @param req
      * @return
      */
-    public BaseRsp<BatchCreateByDraftIdRsp> batchCreateByDraftId(String token, BatchCreateByDraftIdReq req) throws ApiException {
+    public BaseRsp<BatchCreateByDraftIdRsp> batchCreateByDraftId(BatchCreateByDraftIdReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, BATCH_CREATE_BY_DRAFT_ID, BatchCreateByDraftIdRsp.class);
+        return fadadaApiClient.invokeAPI(req, BATCH_CREATE_BY_DRAFT_ID, BatchCreateByDraftIdRsp.class);
     }
 
     /**
      * 根据批次号批量发起签署任务
      *
-     * @param token
      * @param req
      * @return
      */
-    public BaseRsp batchSent(String token, BatchSentReq req) throws ApiException {
+    public BaseRsp batchSent(BatchSentReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, BATCH_SENT, String.class);
+        return fadadaApiClient.invokeAPI(req, BATCH_SENT, String.class);
     }
 
     /**
      * 根据批次号添加签署任务（依据草稿id创建）
      *
-     * @param token
      * @param req
      * @return
      */
-    public BaseRsp batchAddByDraftId(String token, BatchAddByDraftIdReq req) throws ApiException {
+    public BaseRsp batchAddByDraftId(BatchAddByDraftIdReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, BATCH_ADD_BY_DRAFT_ID, String.class);
+        return fadadaApiClient.invokeAPI(req, BATCH_ADD_BY_DRAFT_ID, String.class);
     }
 
     /**
      * 根据批次号获取签署链接
      *
-     * @param token
      * @param req
      * @return
      */
-    public BaseRsp<BatchGetSignUrlRsp> batchGetSignUrl(String token, BatchGetSignUrlReq req) throws ApiException {
+    public BaseRsp<BatchGetSignUrlRsp> batchGetSignUrl(BatchGetSignUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, BATCH_GET_SIGN_URL, BatchGetSignUrlRsp.class);
+        return fadadaApiClient.invokeAPI(req, BATCH_GET_SIGN_URL, BatchGetSignUrlRsp.class);
     }
 
 
     /**
      * 根据批次号查询签署任务
      *
-     * @param token
      * @param req
      * @return
      */
-    public BaseRsp<BatchGetSigntasksByBatchNoRsp> batchGetSigntasksByBatchNo(String token,
-                                                                             BatchGetSigntasksByBatchNoReq req) throws ApiException {
+    public BaseRsp<BatchGetSigntasksByBatchNoRsp> batchGetSigntasksByBatchNo(
+            BatchGetSigntasksByBatchNoReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, BATCH_GET_SIGNTASKS_BY_BATCH_NO, BatchGetSigntasksByBatchNoRsp.class);
+        return fadadaApiClient.invokeAPI(req, BATCH_GET_SIGNTASKS_BY_BATCH_NO, BatchGetSigntasksByBatchNoRsp.class);
     }
 
 }

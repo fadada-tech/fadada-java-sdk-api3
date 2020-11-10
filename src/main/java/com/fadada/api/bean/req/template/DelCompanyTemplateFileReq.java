@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName DelCompanyTemplateFileReq.java
  * @Description 删除合同模板文件请求对象

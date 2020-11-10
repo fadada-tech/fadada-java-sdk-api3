@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName AddEmployeeReq.java
  * @Description 新增员工请求对象

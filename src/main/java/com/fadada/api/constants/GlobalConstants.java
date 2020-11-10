@@ -16,6 +16,7 @@ public class GlobalConstants {
     public static final String FDD_APPID = "X-FDD-Api-App-Id";
     public static final String FDD_SIGN_TYPE = "X-FDD-Api-Sign-Type";
     public static final String FDD_TOKEN = "X-FDD-Api-Token";
+    public static final String FDD_USER_TOKEN = "X-FDD-Api-User-Token";
     public static final String FDD_TIMESTAMP = "X-FDD-Api-Timestamp";
     public static final String FDD_NONCE = "X-FDD-Api-Nonce";
     public static final String FDD_GRANT_TYPE = "X-FDD-Api-Grant-Type";

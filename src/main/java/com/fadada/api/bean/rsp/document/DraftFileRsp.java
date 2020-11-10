@@ -3,7 +3,7 @@ package com.fadada.api.bean.rsp.document;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className DraftFileRsp
  * @description 草稿文件返回对象
  * @createTime 2020年8月13日 15:12:45

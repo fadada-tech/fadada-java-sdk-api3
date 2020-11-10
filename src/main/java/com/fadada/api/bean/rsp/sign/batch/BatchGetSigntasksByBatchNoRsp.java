@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName BatchGetSigntasksByBatchNoRsp.java
  * @Description 获取签署任务返回对象

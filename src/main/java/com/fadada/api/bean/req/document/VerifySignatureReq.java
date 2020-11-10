@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName VerifySignatureReq.java
  * @Description 合同文件验签请求对象

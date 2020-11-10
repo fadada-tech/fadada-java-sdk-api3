@@ -7,7 +7,7 @@ import com.fadada.api.bean.rsp.MiniProgramConfig;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className GetSignUrlRsp
  * @description 签署链接返回对象
  * @createTime 2020年8月13日 15:15:04

@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName CancelSealAuthReq.java
  * @Description 取消授权请求对象
@@ -19,6 +19,9 @@ public class CancelSealAuthReq extends BaseReq {
 
     @ParamsVerif
     private EmployeeInfo employeeInfo;
+
+    @ParamsVerif(checkNotNull = false)
+    private OwnerInfo owner;
 
     /**
      * 签章信息
@@ -85,6 +88,14 @@ public class CancelSealAuthReq extends BaseReq {
 
     public void setEmployeeInfo(EmployeeInfo employeeInfo) {
         this.employeeInfo = employeeInfo;
+    }
+
+    public OwnerInfo getOwner() {
+        return owner;
+    }
+
+    public void setOwner(OwnerInfo owner) {
+        this.owner = owner;
     }
 }
 

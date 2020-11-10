@@ -4,7 +4,7 @@ package com.fadada.api.bean.rsp.sign.batch;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className BatchSigntasRsp
  * @description 签署任务信息
  * @createTime 2020年9月7日 17:15:26

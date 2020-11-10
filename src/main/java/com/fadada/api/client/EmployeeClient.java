@@ -8,7 +8,7 @@ import com.fadada.api.exception.ApiException;
 import com.fadada.api.utils.PreconditionsUtil;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName EmployeeClient.java
  * @Description 员工
@@ -16,8 +16,8 @@ import com.fadada.api.utils.PreconditionsUtil;
  * @createTime 2020年06月17日 14:12:00
  */
 public class EmployeeClient {
-    private static final String ADD_EMPLOYEE = "POST /org/employee/addEmployee";
-    private static final String DEL_EMPLOYEE = "POST /org/employee/delEmployee";
+    private static final String ADD_EMPLOYEE = "POST org/employee/addEmployee";
+    private static final String DEL_EMPLOYEE = "POST org/employee/delEmployee";
 
     private FadadaApiClient fadadaApiClient;
 
@@ -28,26 +28,24 @@ public class EmployeeClient {
     /**
      * 新增员工
      *
-     * @param token
      * @param req
      * @return
      */
-    public BaseRsp addEmployee(String token, AddEmployeeReq req) throws ApiException {
+    public BaseRsp addEmployee(AddEmployeeReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, ADD_EMPLOYEE, Object.class);
+        return fadadaApiClient.invokeAPI(req, ADD_EMPLOYEE, String.class);
     }
 
 
     /**
      * 删除员工
      *
-     * @param token
      * @param req
      * @return
      */
-    public BaseRsp delEmployee(String token, DelEmployeeReq req) throws ApiException {
+    public BaseRsp delEmployee(DelEmployeeReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(token, req, DEL_EMPLOYEE, Object.class);
+        return fadadaApiClient.invokeAPI(req, DEL_EMPLOYEE, String.class);
     }
 
 }

@@ -6,7 +6,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className ParameterizedTypeBaseRsp
  * @description BaseRsp类嵌套类型
  * @createTime 2020年8月13日 15:33:09

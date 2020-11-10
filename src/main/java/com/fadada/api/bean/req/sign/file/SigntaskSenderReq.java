@@ -7,7 +7,7 @@ import com.fadada.api.bean.req.sign.NoticeReq;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className SigntaskSenderReq
  * @description 签署任务对象
  * @createTime 2020年8月13日 15:25:41

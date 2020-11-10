@@ -3,7 +3,7 @@ package com.fadada.api.bean.rsp;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName MiniProgramConfig.java
  * @Description 小程序配置信息

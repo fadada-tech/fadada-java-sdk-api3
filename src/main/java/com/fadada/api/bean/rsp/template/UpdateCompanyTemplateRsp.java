@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName UpdateCompanyTemplateRsp.java
  * @Description 修改企业模板信息请求对象

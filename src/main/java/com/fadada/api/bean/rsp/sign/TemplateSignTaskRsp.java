@@ -7,7 +7,7 @@ import com.fadada.api.bean.rsp.vo.DocumentRes;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className TemplateSignTaskRsp
  * @description 模板签署信息
  * @createTime 2020年8月13日 15:17:09

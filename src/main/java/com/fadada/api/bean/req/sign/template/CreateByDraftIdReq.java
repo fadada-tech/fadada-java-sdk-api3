@@ -6,7 +6,7 @@ import com.fadada.api.bean.req.BaseReq;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className CreateByDraftIdReq
  * @description 通过草稿文件创建签署任务请求对象
  * @createTime 2020年8月13日 15:26:12

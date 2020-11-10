@@ -3,7 +3,7 @@ package com.fadada.api.bean.rsp.template;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName GetCompanyTemplatePreviewUrlRsp.java
  * @Description 模板预览链接信息

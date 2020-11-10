@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className DownloadCompanyTemplateFileReq
  * @description 下载模板请求对象
  * @createTime 2020年8月14日 15:31:42

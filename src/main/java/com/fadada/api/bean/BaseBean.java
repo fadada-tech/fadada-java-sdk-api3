@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import java.io.Serializable;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName BaseBean.java
  * @Description 父类bean

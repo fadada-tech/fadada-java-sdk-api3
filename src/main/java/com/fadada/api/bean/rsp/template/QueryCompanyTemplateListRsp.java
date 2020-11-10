@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className QueryCompanyTemplateListRsp
  * @description 获取模板列表返回对象
  * @createTime 2020年8月20日 15:07:31

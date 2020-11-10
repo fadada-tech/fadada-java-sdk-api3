@@ -7,7 +7,7 @@ import com.fadada.api.bean.req.BaseReq;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className FileSignTaskReq
  * @description 创建签署任务请求对象
  * @createTime 2020年8月13日 15:23:48

@@ -4,7 +4,7 @@ import com.fadada.api.annotation.ParamsVerif;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className GetSignUrlReq
  * @description 获取签署链接请求对象
  * @createTime 2020年8月13日 15:27:43

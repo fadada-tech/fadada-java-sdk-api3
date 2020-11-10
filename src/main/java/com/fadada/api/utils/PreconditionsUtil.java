@@ -34,9 +34,9 @@ public class PreconditionsUtil {
      * @param errorMessage
      */
     public static void checkNotNull(Object reference, String errorMessage) {
-//        if (reference == null) {
-//            throw new NullPointerException(errorMessage);
-//        }
+        if (reference == null) {
+            throw new NullPointerException(errorMessage);
+        }
     }
 
 
@@ -65,9 +65,9 @@ public class PreconditionsUtil {
      * @param errorMessage
      */
     public static void checkArgument(boolean expression, String errorMessage) {
-//        if (expression) {
-//            throw new IllegalArgumentException(errorMessage);
-//        }
+        if (expression) {
+            throw new IllegalArgumentException(errorMessage);
+        }
     }
 
     public static void checkObject(Object req) throws ApiException {
@@ -236,7 +236,7 @@ public class PreconditionsUtil {
 
                         Class<?> componentType = objects.getClass().getComponentType();
                         for (int i = 0; arrayLength > 0 && componentType.isAnnotationPresent(ParamsVerif.class) && i < objects.length; i++) {
-//                            checkFields(objects[i]);
+                            checkFields(objects[i]);
                         }
                     }
                 }

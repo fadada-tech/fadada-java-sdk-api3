@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className DefaultFadadaApiServiceImpl
  * @description 默认法大大apiService实现
  * @createTime 2020年8月13日 15:30:09
@@ -137,10 +137,5 @@ public class DefaultFadadaApiServiceImpl implements FadadaApiService {
             throw new ApiException("httpDownLoad请求失败");
         }
     }
-
-    public static class BspType extends TypeReference {
-
-    }
-
 
 }

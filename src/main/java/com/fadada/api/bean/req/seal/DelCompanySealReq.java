@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName DelCompanySealReq.java
  * @Description 删除企业签章请求对象
@@ -17,6 +17,9 @@ public class DelCompanySealReq extends BaseReq {
 
     @ParamsVerif
     private SealInfo sealInfo;
+
+    @ParamsVerif(checkNotNull = false)
+    private OwnerInfo owner;
 
     /**
      * 签章信息
@@ -48,5 +51,13 @@ public class DelCompanySealReq extends BaseReq {
 
     public void setSealInfo(SealInfo sealInfo) {
         this.sealInfo = sealInfo;
+    }
+
+    public OwnerInfo getOwner() {
+        return owner;
+    }
+
+    public void setOwner(OwnerInfo owner) {
+        this.owner = owner;
     }
 }

@@ -7,7 +7,7 @@ import com.fadada.api.bean.req.BaseReq;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName DownloadEvidenceReportReq.java
  * @Description 公证处报告下载请求对象

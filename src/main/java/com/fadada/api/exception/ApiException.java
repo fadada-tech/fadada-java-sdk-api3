@@ -1,7 +1,7 @@
 package com.fadada.api.exception;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className ApiException
  * @description api异常类
  * @createTime 2020年8月13日 15:29:25

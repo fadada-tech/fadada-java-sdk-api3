@@ -3,7 +3,7 @@ package com.fadada.api.bean.rsp.sign;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName GetSentUrlRsp.java
  * @Description 获取签署任务发起链接返回对象

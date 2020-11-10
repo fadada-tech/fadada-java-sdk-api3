@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName CompanySealDetailReq.java
  * @Description 企业签章详请请求对象
@@ -18,6 +18,9 @@ public class CompanySealDetailReq extends BaseReq {
 
     @ParamsVerif
     private SealInfo sealInfo;
+
+    @ParamsVerif(checkNotNull = false)
+    private OwnerInfo owner;
 
     /**
      * 签章信息
@@ -36,18 +39,19 @@ public class CompanySealDetailReq extends BaseReq {
         }
     }
 
-    public void setSealInfo(String sealId) {
-        if (sealInfo == null) {
-            sealInfo = new SealInfo();
-        }
-        sealInfo.setSealId(sealId);
-    }
-
     public SealInfo getSealInfo() {
         return sealInfo;
     }
 
     public void setSealInfo(SealInfo sealInfo) {
         this.sealInfo = sealInfo;
+    }
+
+    public OwnerInfo getOwner() {
+        return owner;
+    }
+
+    public void setOwner(OwnerInfo owner) {
+        this.owner = owner;
     }
 }

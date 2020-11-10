@@ -4,7 +4,7 @@ import com.fadada.api.annotation.ParamsVerif;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className NoticeReq
  * @description 通知信息
  * @createTime 2020年8月13日 15:24:52

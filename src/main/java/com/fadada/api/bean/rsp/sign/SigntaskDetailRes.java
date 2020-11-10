@@ -3,7 +3,7 @@ package com.fadada.api.bean.rsp.sign;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className SigntaskDetailRes
  * @description 签署任务信息
  * @createTime 2020年8月13日 15:33:47

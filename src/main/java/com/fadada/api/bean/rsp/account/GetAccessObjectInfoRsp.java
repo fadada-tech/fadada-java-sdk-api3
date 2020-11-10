@@ -3,7 +3,7 @@ package com.fadada.api.bean.rsp.account;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName GetAccessObjectInfoRsp.java
  * @Description 获取接入方信息响应对象

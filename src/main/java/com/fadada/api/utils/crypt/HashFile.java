@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className HashFile
  * @description 文件Hash值
  * @createTime 2020年8月13日 15:32:24

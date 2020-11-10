@@ -5,7 +5,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName AddCompanySealReq.java
  * @Description 新增企业签章请求参数
@@ -16,6 +16,9 @@ import com.fadada.api.bean.req.BaseReq;
 public class AddCompanySealReq extends BaseReq {
     @ParamsVerif
     private SealInfo sealInfo;
+
+    @ParamsVerif(checkNotNull = false)
+    private OwnerInfo owner;
 
     /**
      * 签章信息
@@ -66,4 +69,11 @@ public class AddCompanySealReq extends BaseReq {
         this.sealInfo = sealInfo;
     }
 
+    public OwnerInfo getOwner() {
+        return owner;
+    }
+
+    public void setOwner(OwnerInfo owner) {
+        this.owner = owner;
+    }
 }

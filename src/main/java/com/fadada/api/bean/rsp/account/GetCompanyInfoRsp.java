@@ -6,7 +6,7 @@ import com.fadada.api.bean.rsp.vo.BankInfo;
 import com.fadada.api.bean.rsp.vo.Company;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className GetCompanyInfoRsp
  * @description 获取企业信息响应对象
  * @createTime 2020年8月13日 15:09:50

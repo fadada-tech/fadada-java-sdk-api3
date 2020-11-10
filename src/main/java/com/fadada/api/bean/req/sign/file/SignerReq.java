@@ -9,7 +9,7 @@ import com.fadada.api.bean.req.sign.template.ExternalSigner;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className SignerReq
  * @description 签署人信息
  * @createTime 2020年8月13日 15:25:03

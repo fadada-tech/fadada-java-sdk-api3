@@ -6,7 +6,7 @@ import com.fadada.api.bean.BaseBean;
 import java.util.List;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className FileSignReq
  * @description 文件签署信息
  * @createTime 2020年8月13日 15:23:34

@@ -5,7 +5,7 @@ import com.fadada.api.bean.req.sign.NoticeReq;
 import com.fadada.api.bean.req.sign.batch.SigntaskSignerReq;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className TemplateSignerReq
  * @description 模板签署人信息
  * @createTime 2020年8月13日 15:27:18

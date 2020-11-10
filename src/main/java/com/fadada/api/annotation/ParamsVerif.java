@@ -8,7 +8,7 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName ParamsVerif.java
  * @Description 非空, 以及长度，大小限制注解

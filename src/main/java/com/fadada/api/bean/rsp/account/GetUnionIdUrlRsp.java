@@ -4,7 +4,7 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.rsp.MiniProgramConfig;
 
 /**
- * @author yanghui
+ * @author yh128
  * @className GetUnionIdUrlRsp
  * @description 获取unionId地址返回对象
  * @createTime 2020年8月13日 15:11:27

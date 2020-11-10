@@ -1,7 +1,7 @@
 package com.fadada.api.utils.string;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName StringUtil.java
  * @Description String工具类

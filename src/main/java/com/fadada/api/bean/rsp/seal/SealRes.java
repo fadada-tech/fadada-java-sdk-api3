@@ -3,7 +3,7 @@ package com.fadada.api.bean.rsp.seal;
 import com.fadada.api.bean.BaseBean;
 
 /**
- * @author yanghui
+ * @author yh128
  * @version 1.0.0
  * @ClassName SealRes.java
  * @Description 签章信息对象
