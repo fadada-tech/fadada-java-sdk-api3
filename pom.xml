@@ -36,18 +36,6 @@
         </dependency>
     </dependencies>
 
-    <distributionManagement>
-        <repository>
-            <id>fdd-releases</id>
-            <name>Nexus Release Repository</name>
-            <url>http://172.18.3.211:8081/repository/fdd-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>fdd-snapshots</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>http://172.18.3.211:8081/repository/fdd-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
 
     <build>
         <plugins>
