@@ -82,12 +82,12 @@ DefaultFadadaApiClient client = new DefaultFadadaApiClient(APPID, APPKEY, SERVER
 ​		基础父类DefaultFadadaClient可以构造生成对应业务模块的client，调用具体的业务方法。
 
 - ​	Oauth2Client 为oauth授权码服务	
-- ​    AccountClient为账号服务 
+- ​ AccountClient为账号服务 
 - ​	DocumentClient为文件服务
 - ​	SignTaskClient为签署服务
-- ​    EmployeeClient为员工服务
-- ​    SealClient为签章服务
-- ​    TemplateClient为模板服务
+- ​ EmployeeClient为员工服务
+- ​ SealClient为签章服务
+- ​ TemplateClient为模板服务
 
 除了Oauth2Client外，每个业务模块的方法调用时都需要传token参数。
 
@@ -102,62 +102,12 @@ Oauth2Client oauth2Client = new Oauth2Client(client);
 String token = oauth2Client.getToken().getData().getAccessToken();
 //2、封装业务请求对象。
 GetPersonUnionIdUrlReq req = new GetPersonUnionIdUrlReq();
+req.setToken(token);
 req.setClientId("xxxxx");
 req.setRedirectUrl("xxxxx");
 //3、构造业务accountClient，调用对应的业务方法
 AccountClient accountClient = new AccountClient(client);
-BaseRsp<GetUnionIdUrlRsp> rsp = accountClient.getPersonUnionIdUrl(token,req);
+BaseRsp<GetUnionIdUrlRsp> rsp = accountClient.getPersonUnionIdUrl(req);
 ```
 
-更多示例详见接口文档及demo代码。
-
-### 6、方法列表
-请求接口对应方法如下，请求以及响应参数信息请查看api文档。
-
-| 请求接口                                 | client类       | 方法名                       | 备注                     |
-| ---------------------------------------- | -------------- | ---------------------------- | ------------------------ |
-| 获取token                                | Oauth2Client   | getToken                     |                          |
-| 获取个人unionId地址                      | AccountClient  | getPersonUnionIdUrl          |                          |
-| 获取企业unionId地址                      | AccountClient  | getCompanyUnionIdUrl         |                          |
-| 获取用户授权地址                         | AccountClient  | getAuthorizeUrl              |                          |
-| 获取个人实名信息                         | AccountClient  | getPersonInfo                |                          |
-| 获取企业实名信息                         | AccountClient  | getCompanyInfo               |                          |
-| 账号信息校验                             | AccountClient  | checkAccountInfo             |                          |
-| 接入方信息查询                           | AccountClient  | getAccessObjectInfo          |                          |
-| 原始文件上传                             | DocumentClient | uploadFile                   | hash值已计算，不用传该值 |
-| 草稿文件下载                             | DocumentClient | getByDraftId                 |                          |
-| 签署文件下载                             | DocumentClient | getBySignFileId              |                          |
-| 技术报告下载                             | DocumentClient | contractReportDownload       |                          |
-| 在线文件验签                             | DocumentClient | verifySignature              | has值已计算，不用传该值  |
-| 关键字查询坐标                           | DocumentClient | lookUpCoordinates            |                          |
-| 公证处保全报告下载                       | DocumentClient | downloadEvidenceReport       |                          |
-| 依据原始文件创建签署任务                 | SignTaskClient | createSignTaskByFileId       |                          |
-| 获取签署任务发起链接                     | SignTaskClient | getSentUrl                   |                          |
-| 依据模板创建签署任务                     | SignTaskClient | createSignTaskByDraftId      |                          |
-| 获取签署链接                             | SignTaskClient | getSignUrl                   |                          |
-| 查询签署任务详情                         | SignTaskClient | getTaskDetailByTaskId        |                          |
-| 撤销签署任务                             | SignTaskClient | cancelSignTask               |                          |
-| 签署任务催签                             | SignTaskClient | urgeSign                     |                          |
-| 签署文件在线预览链接                     | SignTaskClient | getSignPreviewUrl            |                          |
-| 依据草稿id批量创建签署任务               | SignTaskClient | batchCreateByDraftId         |                          |
-| 根据批次号添加签署任务（依据草稿id创建） | SignTaskClient | batchAddByDraftId            |                          |
-| 根据批次号批量发起签署任务               | SignTaskClient | batchSent                    |                          |
-| 根据批次号获取签署链接                   | SignTaskClient | batchGetSignUrl              |                          |
-| 根据批次号查询签署任务                   | SignTaskClient | batchGetSigntasksByBatchNo   |                          |
-| 新增员工                                 | EmployeeClient | addEmployee                  |                          |
-| 删除员工                                 | EmployeeClient | delEmployee                  |                          |
-| 上传企业印章                             | SealClient     | addCompanySeal               | hash值已计算，不用传该值 |
-| 删除企业印章                             | SealClient     | delCompanySeal               |                          |
-| 印章授权                                 | SealClient     | sealAuth                     |                          |
-| 取消授权                                 | SealClient     | cancelSealAuth               |                          |
-| 查询企业印章列表                         | SealClient     | companySealList              |                          |
-| 查询企业印章详情                         | SealClient     | companySealDetail            |                          |
-| 模板文件上传（模板创建第一步）           | TemplateClient | uploadCompanyTemplateFile    | hash值已计算，不用传该值 |
-| 新增或更新模板信息（模板创建第二步）     | TemplateClient | updateCompanyTemplate        |                          |
-| 获取模板编辑链接（模板创建第三步）       | TemplateClient | getEditCompanyTemplateUrl    |                          |
-| 模板文件删除                             | TemplateClient | delCompanyTemplateFile       |                          |
-| 模板列表查询                             | TemplateClient | queryCompanyTemplateList     |                          |
-| 模板文件下载                             | TemplateClient | downloadCompanyTemplateFile  |                          |
-| 模板在线预览链接                         | TemplateClient | getCompanyTemplatePreviewUrl |                          |
-| 获取模板详情                             | TemplateClient | getTemplateDetailById        |                          |
-| 模板填充                                 | TemplateClient | createByTemplate             |                          |
+更多示例详见demo代码。
