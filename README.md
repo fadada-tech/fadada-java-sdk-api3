@@ -91,7 +91,6 @@ DefaultFadadaApiClient client = new DefaultFadadaApiClient(APPID, APPKEY, SERVER
 
 除了Oauth2Client外，每个业务模块的方法调用时都需要传token参数。
 
-详情见[方法|接口列表](#方法|接口列表)
 
 下面以获取个人union地址的方法调用为例展示调用过程：
 
