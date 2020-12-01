@@ -14,10 +14,12 @@ import com.fadada.api.bean.rsp.vo.Company;
 public class GetCompanyInfoRsp extends BaseBean {
 
     private String unionId;
-    private String status;
+
     private Company companyInfo;
-    private BankInfo bankInfo;
+
     private Applicant applicant;
+
+    private BankInfo bankInfo;
 
     public String getUnionId() {
         return unionId;
@@ -25,14 +27,6 @@ public class GetCompanyInfoRsp extends BaseBean {
 
     public void setUnionId(String unionId) {
         this.unionId = unionId;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public Company getCompanyInfo() {
@@ -43,19 +37,19 @@ public class GetCompanyInfoRsp extends BaseBean {
         this.companyInfo = companyInfo;
     }
 
-    public BankInfo getBankInfo() {
-        return bankInfo;
-    }
-
-    public void setBankInfo(BankInfo bankInfo) {
-        this.bankInfo = bankInfo;
-    }
-
     public Applicant getApplicant() {
         return applicant;
     }
 
     public void setApplicant(Applicant applicant) {
         this.applicant = applicant;
+    }
+
+    public BankInfo getBankInfo() {
+        return bankInfo;
+    }
+
+    public void setBankInfo(BankInfo bankInfo) {
+        this.bankInfo = bankInfo;
     }
 }

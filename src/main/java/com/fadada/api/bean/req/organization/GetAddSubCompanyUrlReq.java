@@ -15,6 +15,9 @@ public class GetAddSubCompanyUrlReq extends BaseReq {
     @ParamsVerif(checkNotEmpty = true)
     private String subCompany;
 
+    @ParamsVerif(checkNotEmpty = true, checkUrl = true)
+    private String redirectUrl;
+
     public String getParentCompany() {
         return parentCompany;
     }
@@ -29,5 +32,13 @@ public class GetAddSubCompanyUrlReq extends BaseReq {
 
     public void setSubCompany(String subCompany) {
         this.subCompany = subCompany;
+    }
+
+    public String getRedirectUrl() {
+        return redirectUrl;
+    }
+
+    public void setRedirectUrl(String redirectUrl) {
+        this.redirectUrl = redirectUrl;
     }
 }

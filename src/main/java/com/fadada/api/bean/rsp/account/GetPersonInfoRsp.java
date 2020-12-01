@@ -11,20 +11,55 @@ import com.fadada.api.bean.rsp.vo.Person;
  */
 public class GetPersonInfoRsp extends BaseBean {
 
-    private String clientId;
-
     private String unionId;
 
     private Integer status;
 
     private Person person;
 
-    public String getClientId() {
-        return clientId;
-    }
+    private PersonImageInfo imageInfo;
 
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
+    public static class PersonImageInfo extends BaseBean {
+
+        private String headPhotoPath;
+
+        private String backgroundIdCardPath;
+
+        private String photoUuid;
+
+        private String gesturesPhotoPath;
+
+        public String getHeadPhotoPath() {
+            return headPhotoPath;
+        }
+
+        public void setHeadPhotoPath(String headPhotoPath) {
+            this.headPhotoPath = headPhotoPath;
+        }
+
+        public String getBackgroundIdCardPath() {
+            return backgroundIdCardPath;
+        }
+
+        public void setBackgroundIdCardPath(String backgroundIdCardPath) {
+            this.backgroundIdCardPath = backgroundIdCardPath;
+        }
+
+        public String getPhotoUuid() {
+            return photoUuid;
+        }
+
+        public void setPhotoUuid(String photoUuid) {
+            this.photoUuid = photoUuid;
+        }
+
+        public String getGesturesPhotoPath() {
+            return gesturesPhotoPath;
+        }
+
+        public void setGesturesPhotoPath(String gesturesPhotoPath) {
+            this.gesturesPhotoPath = gesturesPhotoPath;
+        }
     }
 
     public String getUnionId() {
@@ -49,5 +84,13 @@ public class GetPersonInfoRsp extends BaseBean {
 
     public void setPerson(Person person) {
         this.person = person;
+    }
+
+    public PersonImageInfo getImageInfo() {
+        return imageInfo;
+    }
+
+    public void setImageInfo(PersonImageInfo imageInfo) {
+        this.imageInfo = imageInfo;
     }
 }

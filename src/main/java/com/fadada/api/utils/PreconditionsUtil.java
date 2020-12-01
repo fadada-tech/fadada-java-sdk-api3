@@ -34,9 +34,10 @@ public class PreconditionsUtil {
      * @param errorMessage
      */
     public static void checkNotNull(Object reference, String errorMessage) {
-        if (reference == null) {
-            throw new NullPointerException(errorMessage);
-        }
+        // 不校验
+//        if (reference == null) {
+//            throw new NullPointerException(errorMessage);
+//        }
     }
 
 
@@ -65,9 +66,10 @@ public class PreconditionsUtil {
      * @param errorMessage
      */
     public static void checkArgument(boolean expression, String errorMessage) {
-        if (expression) {
-            throw new IllegalArgumentException(errorMessage);
-        }
+        // 不校验
+//        if (expression) {
+//            throw new IllegalArgumentException(errorMessage);
+//        }
     }
 
     public static void checkObject(Object req) throws ApiException {

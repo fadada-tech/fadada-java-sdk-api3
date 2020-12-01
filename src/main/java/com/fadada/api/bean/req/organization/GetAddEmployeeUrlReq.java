@@ -18,6 +18,8 @@ public class GetAddEmployeeUrlReq extends BaseReq {
     private String company;
     @ParamsVerif
     private EmployeeInfo employeeInfo;
+    @ParamsVerif(checkNotEmpty = true, checkUrl = true)
+    private String redirectUrl;
 
     @ParamsVerif
     public static class EmployeeInfo extends BaseBean {

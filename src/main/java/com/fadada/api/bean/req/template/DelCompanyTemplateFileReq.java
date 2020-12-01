@@ -25,6 +25,9 @@ public class DelCompanyTemplateFileReq extends BaseReq {
 
         private String fileId;
 
+        @ParamsVerif(checkNotNull = false, intContains = {1, 2})
+        private Integer deleteWay;
+
         public String getTemplateId() {
             return templateId;
         }
@@ -39,6 +42,14 @@ public class DelCompanyTemplateFileReq extends BaseReq {
 
         public void setFileId(String fileId) {
             this.fileId = fileId;
+        }
+
+        public Integer getDeleteWay() {
+            return deleteWay;
+        }
+
+        public void setDeleteWay(Integer deleteWay) {
+            this.deleteWay = deleteWay;
         }
     }
 

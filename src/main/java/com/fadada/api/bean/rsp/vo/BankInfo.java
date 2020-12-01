@@ -10,8 +10,14 @@ import com.fadada.api.bean.BaseBean;
  */
 public class BankInfo extends BaseBean {
     private String bankName;
+
     private String bankDetailName;
+
     private String bankCardNo;
+
+    private Integer status;
+
+    private String enterTime;
 
     public String getBankName() {
         return bankName;
@@ -35,5 +41,21 @@ public class BankInfo extends BaseBean {
 
     public void setBankCardNo(String bankCardNo) {
         this.bankCardNo = bankCardNo;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getEnterTime() {
+        return enterTime;
+    }
+
+    public void setEnterTime(String enterTime) {
+        this.enterTime = enterTime;
     }
 }

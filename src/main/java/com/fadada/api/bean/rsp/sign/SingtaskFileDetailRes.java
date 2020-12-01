@@ -11,6 +11,9 @@ import com.fadada.api.bean.BaseBean;
 public class SingtaskFileDetailRes extends BaseBean {
 
     private String fileUUid;
+    private String fileId;
+    private String fileName;
+    private Integer fileType;
 
     public String getFileUUid() {
         return fileUUid;
@@ -18,5 +21,29 @@ public class SingtaskFileDetailRes extends BaseBean {
 
     public void setFileUUid(String fileUUid) {
         this.fileUUid = fileUUid;
+    }
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public Integer getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(Integer fileType) {
+        this.fileType = fileType;
     }
 }

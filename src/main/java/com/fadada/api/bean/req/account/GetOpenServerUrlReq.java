@@ -14,19 +14,9 @@ import com.fadada.api.bean.req.BaseReq;
 @ParamsVerif
 public class GetOpenServerUrlReq extends BaseReq {
     @ParamsVerif(checkNotEmpty = true)
-    private String thirdUserId;
-    @ParamsVerif(checkNotEmpty = true)
     private String unionId;
     @ParamsVerif(checkNotEmpty = true)
     private String redirectUrl;
-
-    public String getThirdUserId() {
-        return thirdUserId;
-    }
-
-    public void setThirdUserId(String thirdUserId) {
-        this.thirdUserId = thirdUserId;
-    }
 
     public String getUnionId() {
         return unionId;

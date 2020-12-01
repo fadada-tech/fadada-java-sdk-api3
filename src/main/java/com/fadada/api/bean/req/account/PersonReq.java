@@ -47,11 +47,6 @@ public class PersonReq extends BaseBean {
     @ParamsVerif(checkNotNull = false, maxLength = 30)
     private String bankCardNo;
 
-    /**
-     * 是否返回小程序参数
-     */
-    @ParamsVerif(checkNotNull = false, intContains = {0, 1})
-    private Integer isMiniProgram = 0;
 
     public String getName() {
         return name;
@@ -115,13 +110,5 @@ public class PersonReq extends BaseBean {
 
     public void setBankCardNo(String bankCardNo) {
         this.bankCardNo = bankCardNo;
-    }
-
-    public Integer getIsMiniProgram() {
-        return isMiniProgram;
-    }
-
-    public void setIsMiniProgram(Integer isMiniProgram) {
-        this.isMiniProgram = isMiniProgram;
     }
 }

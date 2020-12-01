@@ -48,7 +48,6 @@ public class CreateByTemplateReq extends BaseReq {
     /**
      * 模板编号
      **/
-//    @ParamsVerif(checkNotEmpty = true)
     private String templateId;
     /**
      * 模板文件列表

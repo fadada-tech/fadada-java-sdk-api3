@@ -18,7 +18,7 @@ public class SyncTemplateFileInfoReq extends BaseReq {
     @ParamsVerif(checkNotNull = false)
     private Integer deleteStatus;
 
-    private Long templateId;
+    private String templateId;
 
     public String getFileName() {
         return fileName;
@@ -52,11 +52,11 @@ public class SyncTemplateFileInfoReq extends BaseReq {
         this.deleteStatus = deleteStatus;
     }
 
-    public Long getTemplateId() {
+    public String getTemplateId() {
         return templateId;
     }
 
-    public void setTemplateId(Long templateId) {
+    public void setTemplateId(String templateId) {
         this.templateId = templateId;
     }
 }

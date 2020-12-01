@@ -3,6 +3,7 @@ package com.fadada.api.client;
 import com.fadada.api.FadadaApiClient;
 import com.fadada.api.bean.req.sign.*;
 import com.fadada.api.bean.req.sign.batch.*;
+import com.fadada.api.bean.req.sign.draft.CreateTaskByDraftIdReq;
 import com.fadada.api.bean.req.sign.file.FileSignTaskReq;
 import com.fadada.api.bean.req.sign.template.CreateByDraftIdReq;
 import com.fadada.api.bean.rsp.BaseRsp;
@@ -27,6 +28,7 @@ public class SignTaskClient {
     private static final String URGE_SIGN = "POST signtasks/urgeSign";
     private static final String GET_SIGN_PREVIEW_URL = "POST signtasks/getSignPreviewUrl";
     private static final String CREATE_TASK_BY_FILE = "POST signtasks/createTaskByFile";
+    private static final String CREATE_TASK_BY_DRAFT_ID = "POST signtasks/createTaskByDraftId";
 
     /**
      * 批次号任务
@@ -200,6 +202,18 @@ public class SignTaskClient {
             BatchGetSigntasksByBatchNoReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, BATCH_GET_SIGNTASKS_BY_BATCH_NO, BatchGetSigntasksByBatchNoRsp.class);
+    }
+
+    /**
+     * 基于模板草稿id创建签署任务
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp<CreateTaskByDraftIdRsp> createTaskByDraftId(
+            CreateTaskByDraftIdReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, CREATE_TASK_BY_DRAFT_ID, CreateTaskByDraftIdRsp.class);
     }
 
 }

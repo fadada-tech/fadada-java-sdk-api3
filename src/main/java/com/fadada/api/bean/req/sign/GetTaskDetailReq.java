@@ -13,7 +13,6 @@ import com.fadada.api.bean.req.BaseReq;
 public class GetTaskDetailReq extends BaseReq {
     @ParamsVerif(checkNotEmpty = true, equalLength = 32)
     private String taskId;
-    @ParamsVerif(checkNotEmpty = true, maxLength = 32)
     private String unionId;
 
     public String getTaskId() {

@@ -21,6 +21,9 @@ public class AccountClient {
     private static final String CHECK_ACCOUNT_INFO = "POST accounts/checkAccountInfo";
     private static final String GET_ACCESS_OBJECT_INFO = "POST accounts/getAccessObjectInfo";
 
+
+    private static final String GET_FILE_BASE64 = "POST accounts/getFileBase64";
+
     /**
      * 第三方应用操作
      */
@@ -43,6 +46,7 @@ public class AccountClient {
      */
     public BaseRsp<GetUnionIdUrlRsp> getPersonUnionIdUrl(GetPersonUnionIdUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
+
         return fadadaApiClient.invokeAPI(req, GET_PERSON_UNIONID_URL_PATH, GetUnionIdUrlRsp.class);
     }
 
@@ -138,4 +142,16 @@ public class AccountClient {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, CANCE_SERVER, String.class);
     }
+
+    /**
+     * 根据uuid下载文件base64
+     *
+     * @return
+     */
+    public BaseRsp<GetFileBase64Rsp> getFileBase64(GetFileBase64Req req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, GET_FILE_BASE64, GetFileBase64Rsp.class);
+
+    }
+
 }

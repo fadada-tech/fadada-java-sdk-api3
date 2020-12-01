@@ -6,6 +6,7 @@ import com.fadada.api.bean.req.BaseReq;
 import com.fadada.api.bean.req.sign.file.FileReq;
 import com.fadada.api.bean.req.sign.file.SignHereReq;
 import com.fadada.api.bean.req.sign.file.SignerReq;
+import com.fadada.api.bean.req.sign.file.SignerReqV2;
 
 import java.util.List;
 
@@ -110,7 +111,7 @@ public class CreateTaskByFileReq extends BaseReq {
          * 应用内部签署
          */
         @ParamsVerif(checkNotNull = false)
-        private SignerReq signer;
+        private SignerReqV2 signer;
 
 
         /**
@@ -125,11 +126,11 @@ public class CreateTaskByFileReq extends BaseReq {
         @ParamsVerif(checkNotNull = false)
         private List<SignRegionInfo> signRegions;
 
-        public SignerReq getSigner() {
+        public SignerReqV2 getSigner() {
             return signer;
         }
 
-        public void setSigner(SignerReq signer) {
+        public void setSigner(SignerReqV2 signer) {
             this.signer = signer;
         }
 
@@ -176,56 +177,6 @@ public class CreateTaskByFileReq extends BaseReq {
         }
     }
 
-    @ParamsVerif
-    public static class ExternalSignerReq extends BaseBean {
-
-        @ParamsVerif(checkNotEmpty = true, checkMobile = true)
-        private String mobile;
-
-        @ParamsVerif(maxLength = 50)
-        private String personName;
-
-        @ParamsVerif(checkNotNull = false)
-        private ExternalCorpInfo externalCorp;
-
-        public String getMobile() {
-            return mobile;
-        }
-
-        public void setMobile(String mobile) {
-            this.mobile = mobile;
-        }
-
-        public String getPersonName() {
-            return personName;
-        }
-
-        public void setPersonName(String personName) {
-            this.personName = personName;
-        }
-
-        public ExternalCorpInfo getExternalCorp() {
-            return externalCorp;
-        }
-
-        public void setExternalCorp(ExternalCorpInfo externalCorp) {
-            this.externalCorp = externalCorp;
-        }
-    }
-
-    @ParamsVerif
-    public static class ExternalCorpInfo extends BaseBean {
-        @ParamsVerif(maxLength = 100)
-        private String corpName;
-
-        public String getCorpName() {
-            return corpName;
-        }
-
-        public void setCorpName(String corpName) {
-            this.corpName = corpName;
-        }
-    }
 
     public List<FileReq> getFiles() {
         return files;

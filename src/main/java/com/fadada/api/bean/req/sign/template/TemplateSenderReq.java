@@ -16,9 +16,6 @@ public class TemplateSenderReq extends BaseBean {
     @ParamsVerif(checkNotNull = false, minValue = "0", maxValue = "65536")
     private Integer signOrder;
 
-    /**
-     * 签署方式 0 静默签  1 手动签
-     */
     @ParamsVerif(checkNotNull = false, intContains = {0, 1})
     private Integer signWay;
 

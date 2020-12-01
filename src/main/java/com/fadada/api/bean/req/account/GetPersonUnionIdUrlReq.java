@@ -52,6 +52,13 @@ public class GetPersonUnionIdUrlReq extends BaseReq {
     @ParamsVerif(checkNotNull = false, intContains = {0, 1, 2, 3, 4, 5, 6, 7, 9})
     private Integer authScheme = 1;
 
+
+    /**
+     * 是否返回小程序参数
+     */
+    @ParamsVerif(checkNotNull = false, intContains = {0, 1})
+    private Integer isMiniProgram = 0;
+
     public String getClientId() {
         return clientId;
     }
@@ -114,5 +121,13 @@ public class GetPersonUnionIdUrlReq extends BaseReq {
 
     public void setAuthScheme(Integer authScheme) {
         this.authScheme = authScheme;
+    }
+
+    public Integer getIsMiniProgram() {
+        return isMiniProgram;
+    }
+
+    public void setIsMiniProgram(Integer isMiniProgram) {
+        this.isMiniProgram = isMiniProgram;
     }
 }

@@ -149,7 +149,9 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
 
     private <T> BaseRsp<T> httpRequest(BaseReq req, String path, Map<String, File> files, Class<T> clzz)
             throws ApiException {
+
         String resultJson = this.httpRequest(req, path, files);
+
         return FadadaApiClient.getFadadaApiService().toJavaBean(resultJson, new ParameterizedTypeBaseRsp(clzz));
     }
 

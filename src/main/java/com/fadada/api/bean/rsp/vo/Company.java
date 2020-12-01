@@ -9,13 +9,28 @@ import com.fadada.api.bean.BaseBean;
  * @create 2020-02-20 15:25
  */
 public class Company extends BaseBean {
+
     private String companyName;
+
     private String organizationCard;
+
     private String authenticateStatus;
+
     private String organizationType;
+
     private String hasAgent;
+
     private String legalName;
-    private String legal;
+
+    private Integer verifyType;
+
+    private String legalIdCardNo;
+
+    private String auditorTime;
+
+    private String companyEmail;
+
+    private String certType;
 
     public String getCompanyName() {
         return companyName;
@@ -65,11 +80,43 @@ public class Company extends BaseBean {
         this.legalName = legalName;
     }
 
-    public String getLegal() {
-        return legal;
+    public Integer getVerifyType() {
+        return verifyType;
     }
 
-    public void setLegal(String legal) {
-        this.legal = legal;
+    public void setVerifyType(Integer verifyType) {
+        this.verifyType = verifyType;
+    }
+
+    public String getLegalIdCardNo() {
+        return legalIdCardNo;
+    }
+
+    public void setLegalIdCardNo(String legalIdCardNo) {
+        this.legalIdCardNo = legalIdCardNo;
+    }
+
+    public String getAuditorTime() {
+        return auditorTime;
+    }
+
+    public void setAuditorTime(String auditorTime) {
+        this.auditorTime = auditorTime;
+    }
+
+    public String getCompanyEmail() {
+        return companyEmail;
+    }
+
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail;
+    }
+
+    public String getCertType() {
+        return certType;
+    }
+
+    public void setCertType(String certType) {
+        this.certType = certType;
     }
 }

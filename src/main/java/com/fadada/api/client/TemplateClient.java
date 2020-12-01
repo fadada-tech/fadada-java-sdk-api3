@@ -34,7 +34,9 @@ public class TemplateClient {
     private static final String GET_TEMPLATED_ETAIL_BY_ID = "POST documents/getTemplateDetailById";
     private static final String CREATE_BY_TEMPLATEID = "POST documents/createByTemplate";
 
-    private static final String templateInit = "POST template/templateInit";
+    private static final String TEMPLATE_INIT = "POST template/templateInit";
+    private static final String GET_TEMPLATE_MAIN_URL = "POST template/getTemplateMainUrl";
+    private static final String GET_TEMPLATE_DETAIL = "POST template/getTemplateDetail";
 
     /**
      * 模板文件支持格式
@@ -186,9 +188,31 @@ public class TemplateClient {
      * @param req
      * @return
      */
-    public BaseRsp<String> templateInit(CreateByTemplateReq req) throws ApiException {
+    public BaseRsp<TemplateInitRsp> templateInit(TemplateInitReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(req, templateInit, String.class);
+        return fadadaApiClient.invokeAPI(req, TEMPLATE_INIT, TemplateInitRsp.class);
+    }
+
+    /**
+     * 获取模板编辑主页url
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp<GetTemplateMainUrlRsp> getTemplateMainUrl(GetTemplateMainUrlReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, GET_TEMPLATE_MAIN_URL, GetTemplateMainUrlRsp.class);
+    }
+
+    /**
+     * 模板详请
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp<GetTemplateDetailRsp> getTemplateDetail(GetTemplateDetailReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, GET_TEMPLATE_DETAIL, GetTemplateDetailRsp.class);
     }
 
 
