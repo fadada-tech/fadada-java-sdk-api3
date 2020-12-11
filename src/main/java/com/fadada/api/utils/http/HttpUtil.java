@@ -10,16 +10,19 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.ssl.SSLContexts;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.net.ssl.SSLContext;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.file.Files;
@@ -210,7 +213,9 @@ public class HttpUtil {
             if (Boolean.TRUE.equals(PROXY_ON)) {
                 client = getProxyHttpClient();
             } else {
-                client = HttpClients.createDefault();
+//                SSLContext ctx= SSLContext.getInstance("TLSv1.2");
+                SSLContext ctx = SSLContexts.custom().useProtocol("TLSv1.2").build();
+                client = HttpClients.custom().setSSLSocketFactory(new SSLConnectionSocketFactory(ctx)).build();
             }
             if (reqHeader != null && !reqHeader.isEmpty()) {
                 for (Map.Entry<String, String> entry : reqHeader.entrySet()) {

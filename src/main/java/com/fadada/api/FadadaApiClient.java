@@ -88,15 +88,4 @@ public interface FadadaApiClient {
      */
     <T> BaseRsp<T> invokeAPIDownload(BaseReq req, String path, Class<T> clzz) throws ApiException;
 
-    /**
-     * 获取封装接口 为空为设置为默认的并且返回默认的
-     *
-     * @return
-     */
-    static FadadaApiService getFadadaApiService() {
-        if (FadadaApiConfig.fadadaApiService == null) {
-            FadadaApiConfig.fadadaApiService = new DefaultFadadaApiServiceImpl();
-        }
-        return FadadaApiConfig.fadadaApiService;
-    }
 }

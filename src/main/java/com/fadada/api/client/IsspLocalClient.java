@@ -1,7 +1,7 @@
 package com.fadada.api.client;
 
 import com.fadada.api.DefaultFadadaApiServiceImpl;
-import com.fadada.api.FadadaApiClient;
+import com.fadada.api.FadadaApiConfig;
 import com.fadada.api.FadadaApiService;
 import com.fadada.api.bean.req.issp.DownloadFileReq;
 import com.fadada.api.bean.req.issp.UploadFileReq;
@@ -83,9 +83,9 @@ public class IsspLocalClient {
         if (result instanceof String) {
             resultString = result.toString();
         } else {
-            resultString = FadadaApiClient.getFadadaApiService().toJson(result);
+            resultString = FadadaApiConfig.getFadadaApiService().toJson(result);
         }
-        return FadadaApiClient.getFadadaApiService().toJavaBean(resultString,
+        return FadadaApiConfig.getFadadaApiService().toJavaBean(resultString,
                 new ParameterizedTypeBaseRsp(DownLoadFileRsp.class));
     }
 

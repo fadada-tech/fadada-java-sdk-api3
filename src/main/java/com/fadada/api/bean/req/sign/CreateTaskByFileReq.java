@@ -5,7 +5,6 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.BaseReq;
 import com.fadada.api.bean.req.sign.file.FileReq;
 import com.fadada.api.bean.req.sign.file.SignHereReq;
-import com.fadada.api.bean.req.sign.file.SignerReq;
 import com.fadada.api.bean.req.sign.file.SignerReqV2;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.fadada.api.bean;
 
-import com.fadada.api.FadadaApiClient;
+import com.fadada.api.FadadaApiConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +25,7 @@ public class BaseBean implements Serializable {
     public String toString() {
         String jsonStr = null;
         try {
-            jsonStr = FadadaApiClient.getFadadaApiService().toJson(this);
+            jsonStr = FadadaApiConfig.getFadadaApiService().toJson(this);
         } catch (Exception e) {
             log.error("实体json失败：{}", e);
         }

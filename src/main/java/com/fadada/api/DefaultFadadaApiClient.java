@@ -108,14 +108,14 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
         path = path.replace(method, "").trim();
         String url = serverUrl + path;
 
-        Object result = FadadaApiClient.getFadadaApiService().httpDownLoad(url, method, headerMap, bodyMap);
+        Object result = FadadaApiConfig.getFadadaApiService().httpDownLoad(url, method, headerMap, bodyMap);
         String resultString = null;
         if (result instanceof String) {
             resultString = result.toString();
         } else {
-            resultString = FadadaApiClient.getFadadaApiService().toJson(result);
+            resultString = FadadaApiConfig.getFadadaApiService().toJson(result);
         }
-        return FadadaApiClient.getFadadaApiService().toJavaBean(resultString, new ParameterizedTypeBaseRsp(clzz));
+        return FadadaApiConfig.getFadadaApiService().toJavaBean(resultString, new ParameterizedTypeBaseRsp(clzz));
     }
 
     private String httpRequest(BaseReq req, String path, Map<String, File> files) throws ApiException {
@@ -131,7 +131,7 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
         String method = getMethod(path);
         path = path.replace(method, "").trim();
         String url = serverUrl + path;
-        return FadadaApiClient.getFadadaApiService().http(url, method, headerMap, bodyMap, files);
+        return FadadaApiConfig.getFadadaApiService().http(url, method, headerMap, bodyMap, files);
 
     }
 
@@ -152,21 +152,21 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
 
         String resultJson = this.httpRequest(req, path, files);
 
-        return FadadaApiClient.getFadadaApiService().toJavaBean(resultJson, new ParameterizedTypeBaseRsp(clzz));
+        return FadadaApiConfig.getFadadaApiService().toJavaBean(resultJson, new ParameterizedTypeBaseRsp(clzz));
     }
 
     private <T> BaseRsp<List<T>> httpRequestList(BaseReq req, String path, Map<String, File> files, Class<T> clzz)
             throws ApiException {
         String resultJson = this.httpRequest(req, path, files);
-        BaseRsp baseRsp = FadadaApiClient.getFadadaApiService().toJavaBean(resultJson, BaseRsp.class);
-        List<T> lists = FadadaApiClient.getFadadaApiService().toList(baseRsp.getData().toString(), clzz);
+        BaseRsp baseRsp = FadadaApiConfig.getFadadaApiService().toJavaBean(resultJson, BaseRsp.class);
+        List<T> lists = FadadaApiConfig.getFadadaApiService().toList(baseRsp.getData().toString(), clzz);
         baseRsp.setData(lists);
         return baseRsp;
     }
 
     private HashMap<String, String> getBodyMap(BaseReq req) throws ApiException {
         String bizContent = null;
-        bizContent = FadadaApiClient.getFadadaApiService().toJson(req);
+        bizContent = FadadaApiConfig.getFadadaApiService().toJson(req);
 
         HashMap<String, String> bodyMap = new HashMap(1);
         bodyMap.put("bizContent", bizContent);

@@ -71,7 +71,7 @@ public class DefaultFadadaApiServiceImpl implements FadadaApiService {
     }
 
     @Override
-    public <T> T toJavaBean(String json, ParameterizedType parameterizedType) throws ApiException {
+    public <T> T toJavaBean(String json, final ParameterizedType parameterizedType) throws ApiException {
         if (json == null) {
             return null;
         }

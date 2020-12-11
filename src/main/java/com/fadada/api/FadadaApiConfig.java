@@ -87,4 +87,16 @@ public class FadadaApiConfig {
     public void setProxyPort(Integer proxyPort) {
         this.proxyPort = proxyPort;
     }
+
+    /**
+     * 获取封装接口 为空为设置为默认的并且返回默认的
+     *
+     * @return
+     */
+    public static FadadaApiService getFadadaApiService() {
+        if (FadadaApiConfig.fadadaApiService == null) {
+            FadadaApiConfig.fadadaApiService = new DefaultFadadaApiServiceImpl();
+        }
+        return FadadaApiConfig.fadadaApiService;
+    }
 }
