@@ -79,19 +79,26 @@ public class CreateTaskByFileReq extends BaseReq {
 
     @ParamsVerif
     public static class TaskCcInfo extends BaseBean {
-
-        @ParamsVerif(checkNotEmpty = true, maxLength = 32)
-        private String unionId;
+        private String personName;
+        private String companyName;
 
         @ParamsVerif(checkNotNull = false)
         private NoticeReq notice;
 
-        public String getUnionId() {
-            return unionId;
+        public String getPersonName() {
+            return personName;
         }
 
-        public void setUnionId(String unionId) {
-            this.unionId = unionId;
+        public void setPersonName(String personName) {
+            this.personName = personName;
+        }
+
+        public String getCompanyName() {
+            return companyName;
+        }
+
+        public void setCompanyName(String companyName) {
+            this.companyName = companyName;
         }
 
         public NoticeReq getNotice() {
@@ -124,6 +131,8 @@ public class CreateTaskByFileReq extends BaseReq {
          */
         @ParamsVerif(checkNotNull = false)
         private List<SignRegionInfo> signRegions;
+        private Integer lock;
+        private Integer signOrder;
 
         public SignerReqV2 getSigner() {
             return signer;
@@ -147,6 +156,22 @@ public class CreateTaskByFileReq extends BaseReq {
 
         public void setSignRegions(List<SignRegionInfo> signRegions) {
             this.signRegions = signRegions;
+        }
+
+        public Integer getLock() {
+            return lock;
+        }
+
+        public void setLock(Integer lock) {
+            this.lock = lock;
+        }
+
+        public Integer getSignOrder() {
+            return signOrder;
+        }
+
+        public void setSignOrder(Integer signOrder) {
+            this.signOrder = signOrder;
         }
     }
 

@@ -6,19 +6,11 @@ import com.fadada.api.bean.BaseBean;
 @ParamsVerif
 public class TaskCcReq extends BaseBean {
 
-    @ParamsVerif(checkNotEmpty = true, maxLength = 32)
-    private String unionId;
+    private String personName;
+    private String companyName;
 
     @ParamsVerif(checkNotNull = false)
     private NoticeReq notice;
-
-    public String getUnionId() {
-        return unionId;
-    }
-
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
-    }
 
     public NoticeReq getNotice() {
         return notice;
@@ -26,5 +18,21 @@ public class TaskCcReq extends BaseBean {
 
     public void setNotice(NoticeReq notice) {
         this.notice = notice;
+    }
+
+    public String getPersonName() {
+        return personName;
+    }
+
+    public void setPersonName(String personName) {
+        this.personName = personName;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 }

@@ -50,6 +50,7 @@ public class GetAddEmployeeUrlReq extends BaseReq {
     public void setEmployeeInfo(EmployeeInfo employeeInfo) {
         this.employeeInfo = employeeInfo;
     }
+
     public String getRedirectUrl() {
         return redirectUrl;
     }

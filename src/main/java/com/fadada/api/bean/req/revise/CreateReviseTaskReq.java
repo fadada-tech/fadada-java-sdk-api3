@@ -23,6 +23,9 @@ public class CreateReviseTaskReq extends BaseReq {
     private String taskSubject;
     @ParamsVerif(checkNotNull = false, intContains = {1})
     private Integer finalizeWay;
+    @ParamsVerif(checkNotNull = false, intContains = {0, 1})
+    private Integer taskStatus;
+
     @ParamsVerif(checkNotNull = false, intContains = {1})
     private Integer sort;
     @ParamsVerif(checkNotNull = false)
@@ -226,5 +229,13 @@ public class CreateReviseTaskReq extends BaseReq {
 
     public void setTemplateFiles(List<TemplateFileInfo> templateFiles) {
         this.templateFiles = templateFiles;
+    }
+
+    public Integer getTaskStatus() {
+        return taskStatus;
+    }
+
+    public void setTaskStatus(Integer taskStatus) {
+        this.taskStatus = taskStatus;
     }
 }

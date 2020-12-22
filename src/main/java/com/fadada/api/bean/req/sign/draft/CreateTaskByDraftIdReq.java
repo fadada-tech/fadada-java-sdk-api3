@@ -25,6 +25,7 @@ public class CreateTaskByDraftIdReq extends CreateSignTaskReq {
     public static class SignerInfo extends BaseBean {
         private SignatoryInfo signatory;
         private corpInfo corp;
+
         private SignActionInfo signAction;
         private NoticeReq noticeReq;
 
@@ -67,6 +68,7 @@ public class CreateTaskByDraftIdReq extends CreateSignTaskReq {
         private SignerInfo signer;
         private ExternalSignerReq externalSigner;
         private Integer signOrder;
+        private Integer lock;
 
         public String getTemplateRoleName() {
             return templateRoleName;
@@ -99,6 +101,14 @@ public class CreateTaskByDraftIdReq extends CreateSignTaskReq {
 
         public void setSignOrder(Integer signOrder) {
             this.signOrder = signOrder;
+        }
+
+        public Integer getLock() {
+            return lock;
+        }
+
+        public void setLock(Integer lock) {
+            this.lock = lock;
         }
     }
 

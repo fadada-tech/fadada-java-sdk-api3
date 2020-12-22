@@ -10,13 +10,14 @@ import com.fadada.api.bean.BaseBean;
  * @createTime 2020年10月26日 09:45:43
  */
 public class GetAddSubCompanyUrlRsp extends BaseBean {
-    private String addGroupEmployeeUrl;
+    private String childAndGroupUrl;
 
-    public String getAddGroupEmployeeUrl() {
-        return addGroupEmployeeUrl;
+    public String getChildAndGroupUrl() {
+        return childAndGroupUrl;
     }
 
-    public void setAddGroupEmployeeUrl(String addGroupEmployeeUrl) {
-        this.addGroupEmployeeUrl = addGroupEmployeeUrl;
+    public void setChildAndGroupUrl(String childAndGroupUrl) {
+        this.childAndGroupUrl = childAndGroupUrl;
     }
 }
+

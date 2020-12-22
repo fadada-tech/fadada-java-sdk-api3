@@ -26,6 +26,7 @@ public class ReviseTaskDetailRsp extends BaseBean {
     private String expireTime;
     private List<FillRoleInfo> fillRoles;
     private List<ReviseTaskFileInfo> reviseTaskFiles;
+    private List<SignRoleInfo> signRoles;
 
     public String getTaskId() {
         return taskId;
@@ -123,6 +124,14 @@ public class ReviseTaskDetailRsp extends BaseBean {
         this.reviseTaskFiles = reviseTaskFiles;
     }
 
+    public List<SignRoleInfo> getSignRoles() {
+        return signRoles;
+    }
+
+    public void setSignRoles(List<SignRoleInfo> signRoles) {
+        this.signRoles = signRoles;
+    }
+
     public static class FillRoleInfo extends BaseBean {
         private String roleName;
         private Integer status;
@@ -192,12 +201,72 @@ public class ReviseTaskDetailRsp extends BaseBean {
         }
     }
 
+    public static class RoleWidgetInfo extends BaseBean {
+        private String roleName;
+        private List<WidgetInfo> widgets;
+
+        public String getRoleName() {
+            return roleName;
+        }
+
+        public void setRoleName(String roleName) {
+            this.roleName = roleName;
+        }
+
+        public List<WidgetInfo> getWidgets() {
+            return widgets;
+        }
+
+        public void setWidgets(List<WidgetInfo> widgets) {
+            this.widgets = widgets;
+        }
+    }
+
+    public static class WidgetInfo extends BaseBean {
+        private String widgetName;
+        private String widgetValue;
+        private Integer type;
+        private Integer isRequired;
+
+        public String getWidgetName() {
+            return widgetName;
+        }
+
+        public void setWidgetName(String widgetName) {
+            this.widgetName = widgetName;
+        }
+
+        public String getWidgetValue() {
+            return widgetValue;
+        }
+
+        public void setWidgetValue(String widgetValue) {
+            this.widgetValue = widgetValue;
+        }
+
+        public Integer getType() {
+            return type;
+        }
+
+        public void setType(Integer type) {
+            this.type = type;
+        }
+
+        public Integer getIsRequired() {
+            return isRequired;
+        }
+
+        public void setIsRequired(Integer isRequired) {
+            this.isRequired = isRequired;
+        }
+    }
 
     public static class ReviseTaskFileInfo extends BaseBean {
         private String fileId;
         private String fileName;
         private String fileUuid;
         private Integer fileType;
+        private List<RoleWidgetInfo> roleWidgets;
 
         public String getFileId() {
             return fileId;
@@ -230,7 +299,44 @@ public class ReviseTaskDetailRsp extends BaseBean {
         public void setFileType(Integer fileType) {
             this.fileType = fileType;
         }
+
+        public List<RoleWidgetInfo> getRoleWidgets() {
+            return roleWidgets;
+        }
+
+        public void setRoleWidgets(List<RoleWidgetInfo> roleWidgets) {
+            this.roleWidgets = roleWidgets;
+        }
     }
 
+    public static class SignRoleInfo extends BaseBean {
+        private String roleName;
+        private Integer roleType;
+        private Integer signSort;
+
+        public String getRoleName() {
+            return roleName;
+        }
+
+        public void setRoleName(String roleName) {
+            this.roleName = roleName;
+        }
+
+        public Integer getRoleType() {
+            return roleType;
+        }
+
+        public void setRoleType(Integer roleType) {
+            this.roleType = roleType;
+        }
+
+        public Integer getSignSort() {
+            return signSort;
+        }
+
+        public void setSignSort(Integer signSort) {
+            this.signSort = signSort;
+        }
+    }
 
 }
