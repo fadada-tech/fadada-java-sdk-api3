@@ -29,6 +29,7 @@ public class SignTaskClient {
     private static final String GET_SIGN_PREVIEW_URL = "POST signtasks/getSignPreviewUrl";
     private static final String CREATE_TASK_BY_FILE = "POST signtasks/createTaskByFile";
     private static final String CREATE_TASK_BY_DRAFT_ID = "POST signtasks/createTaskByDraftId";
+    private static final String UNLOCK = "POST signtasks/unlock";
 
     /**
      * 批次号任务
@@ -214,6 +215,17 @@ public class SignTaskClient {
             CreateTaskByDraftIdReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, CREATE_TASK_BY_DRAFT_ID, CreateTaskByDraftIdRsp.class);
+    }
+
+    /**
+     * 解锁
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp<UnlockRsp> unlock(UnlockReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, UNLOCK, UnlockRsp.class);
     }
 
 }
