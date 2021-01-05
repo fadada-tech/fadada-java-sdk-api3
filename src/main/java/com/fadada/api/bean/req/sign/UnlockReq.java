@@ -42,7 +42,7 @@ public class UnlockReq extends BaseReq {
 
     public static class Signer extends BaseBean {
         private SignatoryReq signatory;
-        private CorpReq corpReq;
+        private CorpReq corp;
 
         public SignatoryReq getSignatory() {
             return signatory;
@@ -52,12 +52,12 @@ public class UnlockReq extends BaseReq {
             this.signatory = signatory;
         }
 
-        public CorpReq getCorpReq() {
-            return corpReq;
+        public CorpReq getCorp() {
+            return corp;
         }
 
-        public void setCorpReq(CorpReq corpReq) {
-            this.corpReq = corpReq;
+        public void setCorp(CorpReq corp) {
+            this.corp = corp;
         }
     }
 

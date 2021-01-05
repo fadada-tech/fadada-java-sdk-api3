@@ -37,6 +37,7 @@ public class TemplateClient {
     private static final String TEMPLATE_INIT = "POST template/templateInit";
     private static final String GET_TEMPLATE_MAIN_URL = "POST template/getTemplateMainUrl";
     private static final String GET_TEMPLATE_DETAIL = "POST template/getTemplateDetail";
+    private static final String ADD_WIDGET = "POST template/addWidget";
 
     /**
      * 模板文件支持格式
@@ -213,6 +214,17 @@ public class TemplateClient {
     public BaseRsp<GetTemplateDetailRsp> getTemplateDetail(GetTemplateDetailReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, GET_TEMPLATE_DETAIL, GetTemplateDetailRsp.class);
+    }
+
+    /**
+     * 新增自定义控件
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp addWidget(AddWidgetReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, ADD_WIDGET, String.class);
     }
 
 

@@ -78,55 +78,6 @@ public class HttpUtil {
         return new HttpGet(buf.toString());
     }
 
-
-    /**
-     * <b>概要：</b>
-     * 下载文件保存到本地
-     * <b>作者：</b>SUXH </br>
-     * <b>日期：</b>2015-3-14 </br>
-     *
-     * @param path 文件保存位置
-     * @param url  文件地址
-     * @return
-     * @throws IOException
-     */
-    public static boolean downloadFile(String path, String url) {
-        HttpResponse response = null;
-        try (CloseableHttpClient client = HttpClients.createDefault();
-             FileOutputStream fos = new FileOutputStream(path);
-             BufferedOutputStream bw = new BufferedOutputStream(fos)) {
-            // 创建HttpClient对象
-            // 获得HttpGet对象
-            HttpGet httpGet = getHttpGet(url, null, null);
-            response = client.execute(httpGet);
-            // 如果成功
-            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                log.info("###downloadFile download Ready. ");
-                byte[] result = EntityUtils.toByteArray(response.getEntity());
-                // 创建文件对象
-                File f = new File(path);
-                if (f.exists()) {
-                    Files.delete(f.toPath());
-                }
-                // 创建文件路径
-                if (!f.getParentFile().exists()) {
-                    f.getParentFile().mkdirs();
-                }
-                // 写入文件
-                bw.write(result);
-            }
-            // 如果失败
-            else {
-                return false;
-            }
-        } catch (Exception e) {
-            log.error("###downloadFile 下载文件保存到本地,程序发生异常。 ERROR_MSG:" + e.getMessage(), e);
-            return false;
-        }
-        return true;
-    }
-
-
     /**
      * 上传文件 post
      *
@@ -253,7 +204,8 @@ public class HttpUtil {
         CloseableHttpClient client = null;
         try {
             HttpPost request = getHttpPost(url, params, GlobalConstants.CHARSET_UTF8);
-            client = HttpClients.createDefault();
+            SSLContext ctx = SSLContexts.custom().useProtocol("TLSv1.2").build();
+            client = HttpClients.custom().setSSLSocketFactory(new SSLConnectionSocketFactory(ctx)).build();
             if (reqHeader != null) {
                 Iterator var4 = reqHeader.keySet().iterator();
                 while (var4.hasNext()) {
@@ -276,7 +228,7 @@ public class HttpUtil {
                     result.setData(fileRsp);
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.error("文件下载失败：{}", e);
         } finally {
             if (client != null) {

@@ -23,12 +23,24 @@ public class ContractReportDownloadReq extends BaseReq {
         @ParamsVerif(checkNotEmpty = true)
         private String taskId;
 
+        @ParamsVerif(checkNotNull = false, intContains = {1, 2})
+        private Integer reportWay;
+
+
         public String getTaskId() {
             return taskId;
         }
 
         public void setTaskId(String taskId) {
             this.taskId = taskId;
+        }
+
+        public Integer getReportWay() {
+            return reportWay;
+        }
+
+        public void setReportWay(Integer reportWay) {
+            this.reportWay = reportWay;
         }
     }
 
