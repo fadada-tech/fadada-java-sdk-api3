@@ -42,6 +42,10 @@ public class SigntaskDetailRes extends BaseBean {
      */
     private Integer signOrder;
 
+    private Integer lock;
+
+    private String completeTime;
+
     public String getUnionId() {
         return unionId;
     }
@@ -104,5 +108,21 @@ public class SigntaskDetailRes extends BaseBean {
 
     public void setSignOrder(Integer signOrder) {
         this.signOrder = signOrder;
+    }
+
+    public Integer getLock() {
+        return lock;
+    }
+
+    public void setLock(Integer lock) {
+        this.lock = lock;
+    }
+
+    public String getCompleteTime() {
+        return completeTime;
+    }
+
+    public void setCompleteTime(String completeTime) {
+        this.completeTime = completeTime;
     }
 }
