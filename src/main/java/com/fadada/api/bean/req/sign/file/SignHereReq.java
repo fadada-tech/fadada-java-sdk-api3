@@ -19,6 +19,8 @@ public class SignHereReq extends BaseBean {
     private Double xCoordinate;
     @ParamsVerif
     private Double yCoordinate;
+    @ParamsVerif
+    private String keyWord;
 
     public Integer getPageNumber() {
         return pageNumber;
@@ -42,5 +44,13 @@ public class SignHereReq extends BaseBean {
 
     public void setYCoordinate(Double yCoordinate) {
         this.yCoordinate = yCoordinate;
+    }
+
+    public String getKeyWord() {
+        return keyWord;
+    }
+
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
     }
 }

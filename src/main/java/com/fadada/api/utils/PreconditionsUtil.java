@@ -73,7 +73,7 @@ public class PreconditionsUtil {
     }
 
     public static void checkObject(Object req) throws ApiException {
-        checkObject(req, REQUEST_OBJECT_NOT_NULL_STR);
+//        checkObject(req, REQUEST_OBJECT_NOT_NULL_STR);
     }
 
     public static void checkObject(Object req, String message) throws ApiException {
