@@ -29,6 +29,7 @@ public class DocumentClient {
     private static final String VERIFY_SIGNATURE = "POST documents/verifySignature";
     private static final String CONTRACT_REPORT_DOWNLOAD = "POST documents/professionalContractReportDownload";
     private static final String DOWNLOAD_EVIDENCE_REPORT = "POST documents/downloadEvidenceReport";
+    private static final String UPLOAD_FILE_BY_URL = "POST documents/uploadFileByUrl";
 
     /**
      * pdf文件大小
@@ -61,6 +62,18 @@ public class DocumentClient {
         Map<String, File> files = new HashMap<>(1);
         files.put("fileContent", file);
         return fadadaApiClient.invokeAPI(req, UPLOAD_FILE, files, UploadFileRsp.class);
+    }
+
+
+    /**
+     * 通过链接上传文件
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp<UploadFileRsp> uploadFileByUrl(UploadFileByUrlReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, UPLOAD_FILE_BY_URL, UploadFileRsp.class);
     }
 
     /**

@@ -26,6 +26,8 @@ public class QueryCompanyTemplateListReq extends BaseReq {
 
         @ParamsVerif(minValue = "1")
         private Integer pageSize;
+
+        private Integer status;
         /**
          * 关键字
          */
@@ -61,6 +63,14 @@ public class QueryCompanyTemplateListReq extends BaseReq {
 
         public void setTemplateStatus(Integer templateStatus) {
             this.templateStatus = templateStatus;
+        }
+
+        public Integer getStatus() {
+            return status;
+        }
+
+        public void setStatus(Integer status) {
+            this.status = status;
         }
     }
 

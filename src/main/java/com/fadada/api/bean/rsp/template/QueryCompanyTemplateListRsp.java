@@ -53,6 +53,8 @@ public class QueryCompanyTemplateListRsp extends BaseBean {
 
         private Integer templateStatus;
 
+        private Integer status;
+
         public String getTemplateId() {
             return templateId;
         }
@@ -99,6 +101,14 @@ public class QueryCompanyTemplateListRsp extends BaseBean {
 
         public void setTemplateStatus(Integer templateStatus) {
             this.templateStatus = templateStatus;
+        }
+
+        public Integer getStatus() {
+            return status;
+        }
+
+        public void setStatus(Integer status) {
+            this.status = status;
         }
     }
 
