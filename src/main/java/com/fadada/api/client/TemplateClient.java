@@ -101,6 +101,7 @@ public class TemplateClient {
      * @return
      * @throws ApiException
      */
+    @Deprecated
     public BaseRsp<GetEditCompanyTemplateUrlRsp> getEditCompanyTemplateUrl(
             GetEditCompanyTemplateUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
@@ -165,6 +166,7 @@ public class TemplateClient {
      * @param req
      * @return
      */
+    @Deprecated
     public BaseRsp<GetTemplateDetailByIdRsp> getTemplateDetailById(GetTemplateDetailByIdReq req)
             throws ApiException {
         PreconditionsUtil.checkObject(req);
@@ -178,6 +180,7 @@ public class TemplateClient {
      * @param req
      * @return
      */
+    @Deprecated
     public BaseRsp<DraftRsp> createByTemplate(CreateByTemplateReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, CREATE_BY_TEMPLATEID, DraftRsp.class);

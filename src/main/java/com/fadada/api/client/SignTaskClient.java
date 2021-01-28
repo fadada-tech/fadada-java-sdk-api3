@@ -63,6 +63,7 @@ public class SignTaskClient {
      * @param req
      * @return
      */
+    @Deprecated
     public BaseRsp<TemplateSignTaskRsp> createSignTaskByDraftId(CreateByDraftIdReq req)
             throws ApiException {
         PreconditionsUtil.checkObject(req);
