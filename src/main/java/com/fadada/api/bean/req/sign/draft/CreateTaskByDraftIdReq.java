@@ -24,7 +24,7 @@ public class CreateTaskByDraftIdReq extends CreateSignTaskReq {
 
     public static class SignerInfo extends BaseBean {
         private SignatoryInfo signatory;
-        private corpInfo corp;
+        private CorpInfo corp;
 
         private SignActionInfo signAction;
         private NoticeReq notice;
@@ -37,11 +37,11 @@ public class CreateTaskByDraftIdReq extends CreateSignTaskReq {
             this.signatory = signatory;
         }
 
-        public corpInfo getCorp() {
+        public CorpInfo getCorp() {
             return corp;
         }
 
-        public void setCorp(corpInfo corp) {
+        public void setCorp(CorpInfo corp) {
             this.corp = corp;
         }
 
@@ -145,7 +145,7 @@ public class CreateTaskByDraftIdReq extends CreateSignTaskReq {
         }
     }
 
-    public static class corpInfo extends BaseBean {
+    public static class CorpInfo extends BaseBean {
         private String corpId;
         private SealInfo seal;
 
