@@ -2,11 +2,7 @@
 
 ​	JAVA
 
-历史版本版本：
-
-[1.1.0](https://github.com/fadada-tech/fadada-java-sdk-api3/releases/tag/1.1.0)
-
-[1.0.0](https://github.com/fadada-tech/fadada-java-sdk-api3/releases/tag/1.0.0)
+[历史版本](https://github.com/fadada-tech/fadada-java-sdk-api3/releases)
 
 ### **2、SDK支持的环境**
 
