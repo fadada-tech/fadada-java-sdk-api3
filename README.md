@@ -2,6 +2,12 @@
 
 ​	JAVA
 
+历史版本版本：
+
+[1.1.0](https://github.com/fadada-tech/fadada-java-sdk-api3/tree/1.1.0)
+
+[1.0.0](https://github.com/fadada-tech/fadada-java-sdk-api3/tree/1.0.0)
+
 ### **2、SDK支持的环境**
 
 ​	JAVA JDK 版本：  JDK 1.7-1.8
@@ -82,12 +88,12 @@ DefaultFadadaApiClient client = new DefaultFadadaApiClient(APPID, APPKEY, SERVER
 ​		基础父类DefaultFadadaClient可以构造生成对应业务模块的client，调用具体的业务方法。
 
 - ​	Oauth2Client 为oauth授权码服务	
-- ​ AccountClient为账号服务 
+-  AccountClient为账号服务 
 - ​	DocumentClient为文件服务
 - ​	SignTaskClient为签署服务
-- ​ EmployeeClient为员工服务
-- ​ SealClient为签章服务
-- ​ TemplateClient为模板服务
+-  EmployeeClient为员工服务
+-  SealClient为签章服务
+-  TemplateClient为模板服务
 
 除了Oauth2Client外，每个业务模块的方法调用时都需要传token参数。
 
