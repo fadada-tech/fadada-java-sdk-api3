@@ -10,7 +10,9 @@ import com.fadada.api.utils.PreconditionsUtil;
 import com.fadada.api.utils.crypt.HashFile;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -42,11 +44,13 @@ public class TemplateClient {
     /**
      * 模板文件支持格式
      */
-    public static final Pattern TEMPLATE_FILE_PATTERN = Pattern.compile(".+(.doc|.docx|.wps|.pdf|.xls|.xlsx)$");
+    public static final Pattern TEMPLATE_FILE_PATTERN = Pattern.compile("^.+\\.((doc|docx|wps|pdf|xls|xlsx))$",
+            Pattern.CASE_INSENSITIVE);
     /**
      * 模板附件支持格式
      */
-    public static final Pattern TEMPLATE_ATTACH_PATTERN = Pattern.compile(".+(.doc|.docx|.wps|.jpeg|.jpg|.png|.pdf|.xls|.xlsx)$");
+    public static final Pattern TEMPLATE_ATTACH_PATTERN = Pattern.compile("^.+\\.((doc|docx|wps|jpeg|jpg|png|pdf|xls|xlsx))$",
+            Pattern.CASE_INSENSITIVE);
 
     /**
      * 模板文件附件最大值
@@ -101,6 +105,7 @@ public class TemplateClient {
      * @return
      * @throws ApiException
      */
+    @Deprecated
     public BaseRsp<GetEditCompanyTemplateUrlRsp> getEditCompanyTemplateUrl(
             GetEditCompanyTemplateUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
@@ -165,6 +170,7 @@ public class TemplateClient {
      * @param req
      * @return
      */
+    @Deprecated
     public BaseRsp<GetTemplateDetailByIdRsp> getTemplateDetailById(GetTemplateDetailByIdReq req)
             throws ApiException {
         PreconditionsUtil.checkObject(req);
@@ -178,6 +184,7 @@ public class TemplateClient {
      * @param req
      * @return
      */
+    @Deprecated
     public BaseRsp<DraftRsp> createByTemplate(CreateByTemplateReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, CREATE_BY_TEMPLATEID, DraftRsp.class);

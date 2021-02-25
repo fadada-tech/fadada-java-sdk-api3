@@ -32,6 +32,12 @@ public class AccountClient {
     private static final String GET_USER_TOKEN = "POST thirdUser/getUserToken";
     private static final String CANCE_SERVER = "POST thirdUser/cancel";
 
+
+    /**
+     * 生态下单接口
+     */
+    private static final String PURCHASE = "POST order/purchase";
+
     private FadadaApiClient fadadaApiClient;
 
     public AccountClient(FadadaApiClient fadadaApiClient) {
@@ -161,6 +167,16 @@ public class AccountClient {
     public BaseRsp<GetUnionIdsRsp> getUnionIds(GetUnionIdsReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, GET_UNION_IDS, GetUnionIdsRsp.class);
+    }
+
+    /**
+     * 生态用户下单
+     *
+     * @return
+     */
+    public BaseRsp<PurchaseRsp> purchase(PurchaseReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, PURCHASE, PurchaseRsp.class);
     }
 
 }
