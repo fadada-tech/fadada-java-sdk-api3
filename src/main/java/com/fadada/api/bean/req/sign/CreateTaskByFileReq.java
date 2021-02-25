@@ -181,6 +181,8 @@ public class CreateTaskByFileReq extends BaseReq {
         @ParamsVerif(checkNotEmpty = true, maxLength = 20)
         private String fileId; //文件编号
 
+        private Integer type;
+
         @ParamsVerif(checkNotEmpty = true)
         private List<SignHereReq> signHeres;
 
@@ -198,6 +200,14 @@ public class CreateTaskByFileReq extends BaseReq {
 
         public void setSignHeres(List<SignHereReq> signHeres) {
             this.signHeres = signHeres;
+        }
+
+        public Integer getType() {
+            return type;
+        }
+
+        public void setType(Integer type) {
+            this.type = type;
         }
     }
 

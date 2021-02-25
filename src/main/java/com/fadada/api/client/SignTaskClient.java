@@ -30,7 +30,6 @@ public class SignTaskClient {
     private static final String CREATE_TASK_BY_FILE = "POST signtasks/createTaskByFile";
     private static final String CREATE_TASK_BY_DRAFT_ID = "POST signtasks/createTaskByDraftId";
     private static final String UNLOCK = "POST signtasks/unlock";
-    private static final String GET_QUICK_SIGN_URL = "POST signtasks/getQuickSignUrl";
 
     /**
      * 批次号任务
@@ -53,6 +52,7 @@ public class SignTaskClient {
      * @param req
      * @return
      */
+    @Deprecated
     public BaseRsp<FileSignTaskRsp> createSignTaskByFileId(FileSignTaskReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, SIGNTASKS_CREATE_BY_FILE, FileSignTaskRsp.class);
@@ -64,7 +64,6 @@ public class SignTaskClient {
      * @param req
      * @return
      */
-    @Deprecated
     public BaseRsp<TemplateSignTaskRsp> createSignTaskByDraftId(CreateByDraftIdReq req)
             throws ApiException {
         PreconditionsUtil.checkObject(req);
@@ -228,17 +227,6 @@ public class SignTaskClient {
     public BaseRsp<UnlockRsp> unlock(UnlockReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, UNLOCK, UnlockRsp.class);
-    }
-
-    /**
-     * 获取快捷签链接
-     *
-     * @param req
-     * @return
-     */
-    public BaseRsp<GetQuickSignUrlRsp> getQuickSignUrl(GetQuickSignUrlReq req) throws ApiException {
-        PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(req, GET_QUICK_SIGN_URL, GetQuickSignUrlRsp.class);
     }
 
 }
