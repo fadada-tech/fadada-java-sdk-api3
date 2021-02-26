@@ -14,6 +14,8 @@ import com.fadada.api.bean.rsp.sign.batch.BatchGetSigntasksByBatchNoRsp;
 import com.fadada.api.exception.ApiException;
 import com.fadada.api.utils.PreconditionsUtil;
 
+import java.util.List;
+
 /**
  * @author gengxl
  * @create 2020-03-07 9:43
@@ -226,9 +228,9 @@ public class SignTaskClient {
      * @param req
      * @return
      */
-    public BaseRsp<UnlockRsp> unlock(UnlockReq req) throws ApiException {
+    public BaseRsp<List<UnlockRsp>> unlock(UnlockReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
-        return fadadaApiClient.invokeAPI(req, UNLOCK, UnlockRsp.class);
+        return fadadaApiClient.invokeAPIList(req, UNLOCK, UnlockRsp.class);
     }
 
     /**

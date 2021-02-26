@@ -159,8 +159,17 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
             throws ApiException {
         String resultJson = this.httpRequest(req, path, files);
         BaseRsp baseRsp = FadadaApiConfig.getFadadaApiService().toJavaBean(resultJson, BaseRsp.class);
-        List<T> lists = FadadaApiConfig.getFadadaApiService().toList(baseRsp.getData().toString(), clzz);
-        baseRsp.setData(lists);
+        Object data = baseRsp.getData();
+        if (data != null) {
+            String jsonStr;
+            if (data instanceof String) {
+                jsonStr = String.valueOf(data);
+            } else {
+                jsonStr = FadadaApiConfig.getFadadaApiService().toJson(data);
+            }
+            List<T> lists = FadadaApiConfig.getFadadaApiService().toList(jsonStr, clzz);
+            baseRsp.setData(lists);
+        }
         return baseRsp;
     }
 

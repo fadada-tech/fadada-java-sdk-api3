@@ -16,42 +16,14 @@ import java.util.List;
  * @Param
  * @createTime 2020年12月22日 19:13:00
  */
-public class UnlockRsp {
+public class UnlockRsp extends BaseBean {
 
-    private String taskId;
-    private List<UnlockSignerInfo> signers;
+//    private ExternalSignerReq externalSigner;
 
-    public static class UnlockSignerInfo extends BaseBean {
-        private ExternalSignerReq externalSigner;
+    private Signer signer;
 
-        private Signer signer;
+    private Integer lock;
 
-        private Integer lock;
-
-        public ExternalSignerReq getExternalSigner() {
-            return externalSigner;
-        }
-
-        public void setExternalSigner(ExternalSignerReq externalSigner) {
-            this.externalSigner = externalSigner;
-        }
-
-        public Signer getSigner() {
-            return signer;
-        }
-
-        public void setSigner(Signer signer) {
-            this.signer = signer;
-        }
-
-        public Integer getLock() {
-            return lock;
-        }
-
-        public void setLock(Integer lock) {
-            this.lock = lock;
-        }
-    }
 
     public static class Signer extends BaseBean {
         private SignatoryReq signatory;
@@ -74,19 +46,19 @@ public class UnlockRsp {
         }
     }
 
-    public String getTaskId() {
-        return taskId;
+    public Signer getSigner() {
+        return signer;
     }
 
-    public void setTaskId(String taskId) {
-        this.taskId = taskId;
+    public void setSigner(Signer signer) {
+        this.signer = signer;
     }
 
-    public List<UnlockSignerInfo> getSigners() {
-        return signers;
+    public Integer getLock() {
+        return lock;
     }
 
-    public void setSigners(List<UnlockSignerInfo> signers) {
-        this.signers = signers;
+    public void setLock(Integer lock) {
+        this.lock = lock;
     }
 }
