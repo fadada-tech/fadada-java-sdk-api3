@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class UnlockRsp extends BaseBean {
 
-//    private ExternalSignerReq externalSigner;
+    private ExternalSignerReq externalSigner;
 
     private Signer signer;
 
@@ -27,7 +27,7 @@ public class UnlockRsp extends BaseBean {
 
     public static class Signer extends BaseBean {
         private SignatoryReq signatory;
-        private CorpReq corpReq;
+        private CorpReq corp;
 
         public SignatoryReq getSignatory() {
             return signatory;
@@ -37,13 +37,21 @@ public class UnlockRsp extends BaseBean {
             this.signatory = signatory;
         }
 
-        public CorpReq getCorpReq() {
-            return corpReq;
+        public CorpReq getCorp() {
+            return corp;
         }
 
-        public void setCorpReq(CorpReq corpReq) {
-            this.corpReq = corpReq;
+        public void setCorp(CorpReq corp) {
+            this.corp = corp;
         }
+    }
+
+    public ExternalSignerReq getExternalSigner() {
+        return externalSigner;
+    }
+
+    public void setExternalSigner(ExternalSignerReq externalSigner) {
+        this.externalSigner = externalSigner;
     }
 
     public Signer getSigner() {
