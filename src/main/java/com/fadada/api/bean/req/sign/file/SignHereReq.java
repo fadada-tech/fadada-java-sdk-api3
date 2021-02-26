@@ -13,6 +13,7 @@ import com.fadada.api.bean.BaseBean;
 @ParamsVerif
 public class SignHereReq extends BaseBean {
 
+    private Integer signatureType;
     @ParamsVerif
     private Integer pageNumber;
     @ParamsVerif
@@ -52,5 +53,13 @@ public class SignHereReq extends BaseBean {
 
     public void setKeyWord(String keyWord) {
         this.keyWord = keyWord;
+    }
+
+    public Integer getSignatureType() {
+        return signatureType;
+    }
+
+    public void setSignatureType(Integer signatureType) {
+        this.signatureType = signatureType;
     }
 }
