@@ -12,6 +12,8 @@ public class ExternalSignerReq extends BaseBean {
     @ParamsVerif(maxLength = 50)
     private String personName;
 
+    private PersonInfoReq personInfo;
+
     @ParamsVerif
     private ExternalCorpReq externalCorp;
 
@@ -26,6 +28,18 @@ public class ExternalSignerReq extends BaseBean {
 
         public void setCorpName(String corpName) {
             this.corpName = corpName;
+        }
+    }
+    @ParamsVerif
+    public static class PersonInfoReq {
+        private String idCardNo;
+
+        public String getIdCardNo() {
+            return idCardNo;
+        }
+
+        public void setIdCardNo(String idCardNo) {
+            this.idCardNo = idCardNo;
         }
     }
 
@@ -51,5 +65,13 @@ public class ExternalSignerReq extends BaseBean {
 
     public void setExternalCorp(ExternalCorpReq externalCorp) {
         this.externalCorp = externalCorp;
+    }
+
+    public PersonInfoReq getPersonInfo() {
+        return personInfo;
+    }
+
+    public void setPersonInfo(PersonInfoReq personInfo) {
+        this.personInfo = personInfo;
     }
 }

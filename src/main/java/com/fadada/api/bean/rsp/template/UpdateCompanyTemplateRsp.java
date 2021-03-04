@@ -15,7 +15,7 @@ import java.util.List;
 public class UpdateCompanyTemplateRsp extends BaseBean {
     private Long templateId;
 
-    private List<UpdateCompanyTemplateRsp.Target> targets;
+    private List<Target> targets;
 
     public static class Target extends BaseBean {
 
