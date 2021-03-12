@@ -21,6 +21,9 @@ public class CreateReviseTaskReq extends BaseReq {
     private String templateId;
     @ParamsVerif(checkNotEmpty = true, maxLength = 50)
     private String taskSubject;
+
+    @ParamsVerif(checkNotNull = false, maxLength = 255)
+    private String redirectUrl;
     @ParamsVerif(checkNotNull = false, intContains = {1})
     private Integer finalizeWay;
     @ParamsVerif(checkNotNull = false, intContains = {0, 1})
@@ -237,5 +240,13 @@ public class CreateReviseTaskReq extends BaseReq {
 
     public void setTaskStatus(Integer taskStatus) {
         this.taskStatus = taskStatus;
+    }
+
+    public String getRedirectUrl() {
+        return redirectUrl;
+    }
+
+    public void setRedirectUrl(String redirectUrl) {
+        this.redirectUrl = redirectUrl;
     }
 }

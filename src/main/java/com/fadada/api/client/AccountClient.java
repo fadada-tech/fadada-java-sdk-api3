@@ -25,6 +25,10 @@ public class AccountClient {
     private static final String GET_FILE_BASE64 = "POST accounts/getFileBase64";
     private static final String GET_UNION_IDS = "POST accounts/getUnionIds";
 
+
+    private static final String GET_RECHARGE_CENTER_URL = "POST accounts/getRechargeCenterUrl";
+    private static final String GET_PERSON_AND_COMPANY_UNION_ID_URL = "POST accounts/getPersonAndCompanyUnionIdUrl";
+
     /**
      * 第三方应用操作
      */
@@ -177,6 +181,27 @@ public class AccountClient {
     public BaseRsp<PurchaseRsp> purchase(PurchaseReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, PURCHASE, PurchaseRsp.class);
+    }
+
+
+//    /**
+//     * 获取充值中心链接
+//     *
+//     * @return
+//     */
+//    public BaseRsp<GetRechargeCenterUrlRsp> getRechargeCenterUrl(GetRechargeCenterUrlReq req) throws ApiException {
+//        PreconditionsUtil.checkObject(req);
+//        return fadadaApiClient.invokeAPI(req, GET_RECHARGE_CENTER_URL, GetRechargeCenterUrlRsp.class);
+//    }
+
+    /**
+     * 获取统一个人实名+企业实名地址
+     *
+     * @return
+     */
+    public BaseRsp<GetPersonAndCompanyUnionIdUrlRsp> getPersonAndCompanyUnionIdUrl(GetPersonAndCompanyUnionIdUrlReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, GET_PERSON_AND_COMPANY_UNION_ID_URL, GetPersonAndCompanyUnionIdUrlRsp.class);
     }
 
 }
