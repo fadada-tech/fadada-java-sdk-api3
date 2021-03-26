@@ -12,6 +12,8 @@ import com.fadada.api.utils.http.HttpUtil;
 import com.fadada.api.utils.json.ParameterizedTypeBaseRsp;
 import com.fadada.api.utils.random.UUIDGenerator;
 import com.fadada.api.utils.string.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.sql.Timestamp;
@@ -26,6 +28,9 @@ import java.util.Map;
  * @createTime 2020年8月13日 15:29:41
  */
 public class DefaultFadadaApiClient implements FadadaApiClient {
+
+    private static Logger log = LoggerFactory.getLogger(DefaultFadadaApiClient.class);
+
     private String appId;
     private String appKey;
     private String serverUrl;
@@ -63,6 +68,9 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
         this.signType = fadadaApiConfig.getSignType();
         HttpUtil.CONNECT_TIMEOUT = fadadaApiConfig.getConnectTimeout();
         HttpUtil.SO_TIMEOUT = fadadaApiConfig.getReadTimeout();
+        HttpUtil.PROXY_ON = fadadaApiConfig.getProxyFlag();
+        HttpUtil.PROXYHOST = fadadaApiConfig.getProxyHost();
+        HttpUtil.PROXYPORT = fadadaApiConfig.getProxyPort();
 
         if (fadadaApiService != null) {
             setFadadaApiService(fadadaApiService);
@@ -132,7 +140,6 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
         path = path.replace(method, "").trim();
         String url = serverUrl + path;
         return FadadaApiConfig.getFadadaApiService().http(url, method, headerMap, bodyMap, files);
-
     }
 
     private String getMethod(String path) {
@@ -149,9 +156,7 @@ public class DefaultFadadaApiClient implements FadadaApiClient {
 
     private <T> BaseRsp<T> httpRequest(BaseReq req, String path, Map<String, File> files, Class<T> clzz)
             throws ApiException {
-
         String resultJson = this.httpRequest(req, path, files);
-
         return FadadaApiConfig.getFadadaApiService().toJavaBean(resultJson, new ParameterizedTypeBaseRsp(clzz));
     }
 

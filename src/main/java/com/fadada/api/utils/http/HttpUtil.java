@@ -4,7 +4,6 @@ import com.fadada.api.bean.rsp.BaseRsp;
 import com.fadada.api.bean.rsp.document.DownLoadFileRsp;
 import com.fadada.api.constants.GlobalConstants;
 import org.apache.http.*;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
@@ -24,8 +23,10 @@ import org.slf4j.LoggerFactory;
 
 import javax.net.ssl.SSLContext;
 import java.io.*;
+import java.net.URI;
 import java.net.URLEncoder;
-import java.nio.file.Files;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -47,9 +48,6 @@ public class HttpUtil {
     private HttpUtil() {
     }
 
-    /**
-     * 默认编码方式 -UTF8
-     */
     private static Logger log = LoggerFactory.getLogger(HttpUtil.class);
 
     private static HttpGet getHttpGet(String url, Map<String, String> params, String encode) {
@@ -88,7 +86,6 @@ public class HttpUtil {
      */
     private static HttpPost getHttpPost(String url, Map<String, String> params, Map<String, File> files) {
         HttpPost httpPost = new HttpPost(url);
-        httpPost.setConfig(getRequestConfig());
         MultipartEntityBuilder multipartEntityBuilder = MultipartEntityBuilder.create();
         if (files != null && !files.isEmpty()) {
             for (Map.Entry<String, File> kv : files.entrySet()) {
@@ -119,7 +116,7 @@ public class HttpUtil {
      */
     private static HttpPost getHttpPost(String url, Map<String, String> params, String charset) throws UnsupportedEncodingException {
         HttpPost httpPost = new HttpPost(url);
-        httpPost.setConfig(getRequestConfig());
+//        httpPost.setConfig(getRequestConfig());
         if (params != null && !params.isEmpty()) {
             List<NameValuePair> list = new ArrayList<>();
             for (Map.Entry<String, String> entry : params.entrySet()) {
@@ -137,59 +134,96 @@ public class HttpUtil {
     public static String post(String url, Map<String, String> reqHeader, Map<String, String> params,
                               Map<String, File> files) {
         try {
+            // 添加代理
+            HttpHost proxy = Boolean.TRUE.equals(PROXY_ON) ? addProxy() : null;
+            // 初始化httpClient
+            CloseableHttpClient httpClient = getHttpClient();
+            // 创建http请求 设置请求参数
             HttpPost httpPost = null;
             if (files == null || files.isEmpty()) {
                 httpPost = getHttpPost(url, params, GlobalConstants.CHARSET_UTF8);
             } else {
                 httpPost = getHttpPost(url, params, files);
             }
-            return executeHttpRequest(httpPost, reqHeader);
+            // 设置代理配置
+            RequestConfig.Builder requestConfig = getRequestConfig();
+            if (proxy != null) {
+                requestConfig.setProxy(proxy);
+            }
+            httpPost.setConfig(requestConfig.build());
+
+            return executeHttpRequest(httpClient, httpPost, reqHeader);
         } catch (Exception e) {
             log.error("url=[{}] http请求失败：{}", url, e);
         }
         return null;
     }
 
-    public static String get(String url, Map<String, String> reqHeader, Map<String, String> params) {
-        HttpGet httpGet = getHttpGet(url, params, GlobalConstants.CHARSET_UTF8);
-        return executeHttpRequest(httpGet, reqHeader);
+    /**
+     * 获取client
+     *
+     * @return
+     */
+    public static CloseableHttpClient getHttpClient() {
+        if (Boolean.TRUE.equals(PROXY_ON)) {
+            return HttpClients.custom().build();
+        } else {
+            try {
+                SSLContext ctx = SSLContexts.custom().useProtocol("TLSv1.2").build();
+                return HttpClients.custom().setSSLSocketFactory(new SSLConnectionSocketFactory(ctx)).build();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (KeyManagementException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
 
-    public static String executeHttpRequest(HttpUriRequest request, Map<String, String> reqHeader) {
-        HttpClient client = null;
-        String result = null;
+    public static String get(String url, Map<String, String> reqHeader, Map<String, String> params) {
+        // 添加代理
+        HttpHost proxy = Boolean.TRUE.equals(PROXY_ON) ? addProxy() : null;
+        // 初始化httpClient
+        CloseableHttpClient httpClient = getHttpClient();
+        // 创建http请求 设置请求参数
+        HttpGet httpGet = getHttpGet(url, params, GlobalConstants.CHARSET_UTF8);
+        // 设置代理配置
+        RequestConfig.Builder requestConfig = getRequestConfig();
+        if (proxy != null) {
+            requestConfig.setProxy(proxy);
+        }
+        httpGet.setConfig(requestConfig.build());
+        return executeHttpRequest(httpClient, httpGet, reqHeader);
+    }
+
+
+    public static String executeHttpRequest(CloseableHttpClient client, HttpUriRequest request, Map<String, String> reqHeader) {
         try {
-            //根据配置文件配置代理服务器
-            if (Boolean.TRUE.equals(PROXY_ON)) {
-                client = getProxyHttpClient();
-            } else {
-//                SSLContext ctx= SSLContext.getInstance("TLSv1.2");
-                SSLContext ctx = SSLContexts.custom().useProtocol("TLSv1.2").build();
-                client = HttpClients.custom().setSSLSocketFactory(new SSLConnectionSocketFactory(ctx)).build();
-            }
             if (reqHeader != null && !reqHeader.isEmpty()) {
                 for (Map.Entry<String, String> entry : reqHeader.entrySet()) {
                     request.addHeader(entry.getKey(), entry.getValue());
                 }
             }
             HttpResponse response = client.execute(request);
+            reqesutAndResponseLog(request, response);
             if (response.getStatusLine().getStatusCode() == GlobalConstants.SUCCESS_CODE_200) {
-                result = EntityUtils.toString(response.getEntity());
+                return EntityUtils.toString(response.getEntity());
             }
         } catch (Exception e) {
             log.error("executeHttpRequest请求失败：{}", e);
         } finally {
             if (client != null) {
                 try {
-                    ((CloseableHttpClient) client).close();
+                    client.close();
                 } catch (IOException e) {
                     log.error("CloseableHttpClient关闭失败：{}", e);
                 }
             }
         }
-        return result;
+        return null;
     }
+
 
     /**
      * 下载文件
@@ -201,19 +235,28 @@ public class HttpUtil {
      */
     public static Object downLoadFiles(String url, Map<String, String> reqHeader, Map<String, String> params) {
         BaseRsp<DownLoadFileRsp> result = null;
-        CloseableHttpClient client = null;
+        // 添加代理
+        HttpHost proxy = Boolean.TRUE.equals(PROXY_ON) ? addProxy() : null;
+        // 初始化httpClient
+        CloseableHttpClient httpClient = getHttpClient();
         try {
-            HttpPost request = getHttpPost(url, params, GlobalConstants.CHARSET_UTF8);
-            SSLContext ctx = SSLContexts.custom().useProtocol("TLSv1.2").build();
-            client = HttpClients.custom().setSSLSocketFactory(new SSLConnectionSocketFactory(ctx)).build();
+            // 创建http请求 设置请求参数
+            HttpPost httpPost = getHttpPost(url, params, GlobalConstants.CHARSET_UTF8);
             if (reqHeader != null) {
                 Iterator var4 = reqHeader.keySet().iterator();
                 while (var4.hasNext()) {
                     String name = (String) var4.next();
-                    request.addHeader(name, reqHeader.get(name));
+                    httpPost.addHeader(name, reqHeader.get(name));
                 }
             }
-            HttpResponse response = client.execute(request);
+            // 设置代理配置
+            RequestConfig.Builder requestConfig = getRequestConfig();
+            if (proxy != null) {
+                requestConfig.setProxy(proxy);
+            }
+            httpPost.setConfig(requestConfig.build());
+            HttpResponse response = httpClient.execute(httpPost);
+            reqesutAndResponseLog(httpPost, response);
             if (response.getStatusLine().getStatusCode() == GlobalConstants.SUCCESS_CODE_200) {
                 HttpEntity respEntity = response.getEntity();
                 Header contentType = respEntity.getContentType();
@@ -231,9 +274,9 @@ public class HttpUtil {
         } catch (Exception e) {
             log.error("文件下载失败：{}", e);
         } finally {
-            if (client != null) {
+            if (httpClient != null) {
                 try {
-                    client.close();
+                    httpClient.close();
                 } catch (IOException e) {
                     log.error("CloseableHttpClient关闭失败：{}", e);
                 }
@@ -243,22 +286,41 @@ public class HttpUtil {
     }
 
 
-    private static CloseableHttpClient getProxyHttpClient() {
-        HttpHost proxy = new HttpHost(PROXYHOST, PROXYPORT, "http");
-        //把代理设置到请求配置
-        RequestConfig defaultRequestConfig = RequestConfig.custom().setProxy(proxy).build();
-        //实例化CloseableHttpClient对象
-        return HttpClients.custom().setDefaultRequestConfig(defaultRequestConfig).build();
+    /**
+     * 请求响应日志打印
+     *
+     * @param request
+     * @param response
+     */
+    private static void reqesutAndResponseLog(HttpUriRequest request, HttpResponse response) {
+
+        // 请求url
+        URI uri = request.getURI();
+        if (uri != null) {
+            log.info("request url = [{}]", uri.toString());
+        }
+
+        // 获取请求头里面的nonce
+        Header[] requestHeaders = request.getHeaders(GlobalConstants.FDD_NONCE);
+
+        if (requestHeaders != null && requestHeaders.length > 0) {
+            log.info("request header {}= [{}]", GlobalConstants.FDD_NONCE, requestHeaders[0].getValue());
+        }
+
+        // 获取响应头里面的requestId
+        Header[] responseHeaders = response.getHeaders(GlobalConstants.FDD_REQEUST_ID);
+        if (responseHeaders != null && responseHeaders.length > 0) {
+            log.info("response header {}= [{}]", GlobalConstants.FDD_REQEUST_ID, responseHeaders[0].getValue());
+        }
     }
 
     /**
-     * 获取请求配置
+     * 设置超时时间
      *
      * @return
      */
-    private static RequestConfig getRequestConfig() {
+    private static RequestConfig.Builder getRequestConfig() {
         RequestConfig.Builder custom = RequestConfig.custom();
-        // 如果请求使劲不为空就设置值，为空就不设置超时时间，默认不设置超时时间
         if (SO_TIMEOUT != null) {
             custom.setSocketTimeout(SO_TIMEOUT);
         }
@@ -266,7 +328,17 @@ public class HttpUtil {
             custom.setConnectTimeout(CONNECT_TIMEOUT);
         }
 
-        return custom.build();
+        return custom;
     }
+
+    /**
+     * 代理添加
+     *
+     * @return
+     */
+    private static HttpHost addProxy() {
+        return new HttpHost(PROXYHOST, PROXYPORT, "http");
+    }
+
 
 }

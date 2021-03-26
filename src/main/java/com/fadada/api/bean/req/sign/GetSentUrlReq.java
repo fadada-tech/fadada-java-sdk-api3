@@ -16,11 +16,21 @@ public class GetSentUrlReq extends BaseReq {
     @ParamsVerif(checkNotEmpty = true, equalLength = 32)
     private String taskId;
 
+    private String redirectUrl;
+
     public String getTaskId() {
         return taskId;
     }
 
     public void setTaskId(String taskId) {
         this.taskId = taskId;
+    }
+
+    public String getRedirectUrl() {
+        return redirectUrl;
+    }
+
+    public void setRedirectUrl(String redirectUrl) {
+        this.redirectUrl = redirectUrl;
     }
 }

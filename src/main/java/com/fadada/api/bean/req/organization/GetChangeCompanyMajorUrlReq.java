@@ -16,11 +16,31 @@ public class GetChangeCompanyMajorUrlReq extends BaseReq {
     @ParamsVerif(checkNotEmpty = true)
     private String unionId;
 
+    private String redirectUrl;
+
+    private String newMajorUnionId;
+
     public String getUnionId() {
         return unionId;
     }
 
     public void setUnionId(String unionId) {
         this.unionId = unionId;
+    }
+
+    public String getRedirectUrl() {
+        return redirectUrl;
+    }
+
+    public void setRedirectUrl(String redirectUrl) {
+        this.redirectUrl = redirectUrl;
+    }
+
+    public String getNewMajorUnionId() {
+        return newMajorUnionId;
+    }
+
+    public void setNewMajorUnionId(String newMajorUnionId) {
+        this.newMajorUnionId = newMajorUnionId;
     }
 }

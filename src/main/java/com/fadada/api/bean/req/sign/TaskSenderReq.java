@@ -6,14 +6,13 @@ import com.fadada.api.bean.BaseBean;
 @ParamsVerif
 public class TaskSenderReq extends BaseBean {
 
-    @ParamsVerif(maxLength = 32)
-    private String unionId;
+    private String agentId;
 
-    public String getUnionId() {
-        return unionId;
+    public String getAgentId() {
+        return agentId;
     }
 
-    public void setUnionId(String unionId) {
-        this.unionId = unionId;
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
     }
 }

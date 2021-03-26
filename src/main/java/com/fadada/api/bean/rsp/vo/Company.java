@@ -18,6 +18,8 @@ public class Company extends BaseBean {
 
     private String organizationType;
 
+    private String organizationPath;
+
     private String hasAgent;
 
     private String legalName;
@@ -118,5 +120,13 @@ public class Company extends BaseBean {
 
     public void setCertType(String certType) {
         this.certType = certType;
+    }
+
+    public String getOrganizationPath() {
+        return organizationPath;
+    }
+
+    public void setOrganizationPath(String organizationPath) {
+        this.organizationPath = organizationPath;
     }
 }

@@ -66,14 +66,14 @@ public class CreateTaskByFileReq extends BaseReq {
     public static class TaskSenderInfo extends BaseBean {
 
         @ParamsVerif(checkNotEmpty = true)
-        private String unionId;
+        private String agentId;
 
-        public String getUnionId() {
-            return unionId;
+        public String getAgentId() {
+            return agentId;
         }
 
-        public void setUnionId(String unionId) {
-            this.unionId = unionId;
+        public void setAgentId(String agentId) {
+            this.agentId = agentId;
         }
     }
 

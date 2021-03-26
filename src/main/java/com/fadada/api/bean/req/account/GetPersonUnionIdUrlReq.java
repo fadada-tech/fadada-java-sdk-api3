@@ -65,6 +65,9 @@ public class GetPersonUnionIdUrlReq extends BaseReq {
     @ParamsVerif(checkNotNull = false, intContains = {0, 1})
     private Integer isMiniProgram = 0;
 
+
+    private String modifyUrl;
+
     public String getClientId() {
         return clientId;
     }
@@ -143,5 +146,13 @@ public class GetPersonUnionIdUrlReq extends BaseReq {
 
     public void setReRealName(Integer reRealName) {
         this.reRealName = reRealName;
+    }
+
+    public String getModifyUrl() {
+        return modifyUrl;
+    }
+
+    public void setModifyUrl(String modifyUrl) {
+        this.modifyUrl = modifyUrl;
     }
 }

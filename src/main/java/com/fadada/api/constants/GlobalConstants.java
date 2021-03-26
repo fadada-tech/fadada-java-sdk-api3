@@ -21,6 +21,7 @@ public class GlobalConstants {
     public static final String FDD_NONCE = "X-FDD-Api-Nonce";
     public static final String FDD_GRANT_TYPE = "X-FDD-Api-Grant-Type";
     public static final String FDD_API_SIGN = "X-FDD-Api-Sign";
+    public static final String FDD_REQEUST_ID = "X-FDD-Request-Id";
 
     /**
      * 默认授权类型

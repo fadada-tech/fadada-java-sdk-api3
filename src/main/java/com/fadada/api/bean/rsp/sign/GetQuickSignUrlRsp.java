@@ -1,5 +1,8 @@
 package com.fadada.api.bean.rsp.sign;
 
+import com.fadada.api.bean.BaseBean;
+import com.fadada.api.bean.req.sign.ExternalSignerReq;
+import com.fadada.api.bean.req.sign.template.ExternalSigner;
 import com.fadada.api.bean.rsp.BaseRsp;
 
 import java.util.List;
@@ -14,6 +17,7 @@ import java.util.List;
  */
 public class GetQuickSignUrlRsp extends BaseRsp {
     private List<SignUrlInfo> signUrls;
+    private List<SignDetailRsp> signDetails;
 
     public static class SignUrlInfo extends BaseRsp {
         private String signUrl;
@@ -27,6 +31,14 @@ public class GetQuickSignUrlRsp extends BaseRsp {
         }
     }
 
+    public List<SignDetailRsp> getSignDetails() {
+        return signDetails;
+    }
+
+    public void setSignDetails(List<SignDetailRsp> signDetails) {
+        this.signDetails = signDetails;
+    }
+
     public List<SignUrlInfo> getSignUrls() {
         return signUrls;
     }
@@ -34,4 +46,45 @@ public class GetQuickSignUrlRsp extends BaseRsp {
     public void setSignUrls(List<SignUrlInfo> signUrls) {
         this.signUrls = signUrls;
     }
+
+    public static class SignDetailRsp extends BaseBean {
+        private String signUrl;
+        private String signOrder;
+        private String signStatus;
+        private ExternalSigner externalSigner;
+
+        public String getSignUrl() {
+            return signUrl;
+        }
+
+        public void setSignUrl(String signUrl) {
+            this.signUrl = signUrl;
+        }
+
+        public String getSignOrder() {
+            return signOrder;
+        }
+
+        public void setSignOrder(String signOrder) {
+            this.signOrder = signOrder;
+        }
+
+        public String getSignStatus() {
+            return signStatus;
+        }
+
+        public void setSignStatus(String signStatus) {
+            this.signStatus = signStatus;
+        }
+
+        public ExternalSigner getExternalSigner() {
+            return externalSigner;
+        }
+
+        public void setExternalSigner(ExternalSigner externalSigner) {
+            this.externalSigner = externalSigner;
+        }
+    }
+
+
 }

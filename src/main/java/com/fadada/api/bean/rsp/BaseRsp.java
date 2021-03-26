@@ -13,6 +13,8 @@ public class BaseRsp<T> extends BaseBean {
 
     private String msg;
 
+    private String requestId;
+
     private T data;
 
     public BaseRsp() {

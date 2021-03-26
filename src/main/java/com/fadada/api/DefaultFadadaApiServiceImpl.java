@@ -31,10 +31,10 @@ public class DefaultFadadaApiServiceImpl implements FadadaApiService {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     static {
-        //序列化的时候序列对象的所有属性
+        // 序列化的时候序列对象的所有属性
         OBJECT_MAPPER.setSerializationInclusion(JsonInclude.Include.ALWAYS);
 
-        //取消时间的转化格式,默认是时间戳,可以取消,同时需要设置要表现的时间格式
+        // 取消时间的转化格式,默认是时间戳,可以取消,同时需要设置要表现的时间格式
         OBJECT_MAPPER.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         OBJECT_MAPPER.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
 

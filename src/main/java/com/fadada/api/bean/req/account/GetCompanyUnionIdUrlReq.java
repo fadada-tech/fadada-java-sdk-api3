@@ -54,6 +54,8 @@ public class GetCompanyUnionIdUrlReq extends BaseReq {
     @ParamsVerif(checkNotNull = false, intContains = {0, 1, 2, 3})
     private Integer authScheme = 1;
 
+    private Integer reRealName = 0;
+
     public String getClientId() {
         return clientId;
     }
@@ -132,5 +134,13 @@ public class GetCompanyUnionIdUrlReq extends BaseReq {
 
     public void setAuthScheme(Integer authScheme) {
         this.authScheme = authScheme;
+    }
+
+    public Integer getReRealName() {
+        return reRealName;
+    }
+
+    public void setReRealName(Integer reRealName) {
+        this.reRealName = reRealName;
     }
 }
