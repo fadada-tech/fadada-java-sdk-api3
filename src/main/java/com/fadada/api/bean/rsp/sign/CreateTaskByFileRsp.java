@@ -19,6 +19,8 @@ public class CreateTaskByFileRsp extends BaseBean {
 
     public static class SignFileIdInfo extends BaseBean {
         private String signFileId;
+        private String signFileName;
+        private String fileId;
 
         public String getSignFileId() {
             return signFileId;
@@ -26,6 +28,22 @@ public class CreateTaskByFileRsp extends BaseBean {
 
         public void setSignFileId(String signFileId) {
             this.signFileId = signFileId;
+        }
+
+        public String getSignFileName() {
+            return signFileName;
+        }
+
+        public void setSignFileName(String signFileName) {
+            this.signFileName = signFileName;
+        }
+
+        public String getFileId() {
+            return fileId;
+        }
+
+        public void setFileId(String fileId) {
+            this.fileId = fileId;
         }
     }
 

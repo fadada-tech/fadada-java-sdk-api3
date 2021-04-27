@@ -25,8 +25,17 @@ public class TemplateInitReq extends BaseReq {
         private String templateName;
         @ParamsVerif(checkNotNull = false, maxLength = 50)
         private String templateRemark;
+        private Integer fileSource;
         @ParamsVerif(checkNotNull = false)
         private List<RoleInfo> roles;
+
+        public Integer getFileSource() {
+            return fileSource;
+        }
+
+        public void setFileSource(Integer fileSource) {
+            this.fileSource = fileSource;
+        }
 
         public String getTemplateName() {
             return templateName;

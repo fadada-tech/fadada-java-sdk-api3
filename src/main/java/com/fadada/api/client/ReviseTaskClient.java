@@ -3,6 +3,7 @@ package com.fadada.api.client;
 import com.fadada.api.FadadaApiClient;
 import com.fadada.api.bean.req.revise.*;
 import com.fadada.api.bean.rsp.BaseRsp;
+import com.fadada.api.bean.rsp.document.DownLoadFileRsp;
 import com.fadada.api.bean.rsp.revise.CreateReviseTaskRsp;
 import com.fadada.api.bean.rsp.revise.GetFillFileUrlRsp;
 import com.fadada.api.bean.rsp.revise.ReviseTaskDetailRsp;
@@ -24,6 +25,7 @@ public class ReviseTaskClient {
     private static final String CANCEL_REVISE_TASK = "POST /reviseTask/cancelReviseTask";
     private static final String REVISE_TASK_DETAIL = "POST /reviseTask/reviseTaskDetail";
     private static final String SAVE_FILL_VALUES = "POST /reviseTask/saveFillValues";
+    private static final String DOWNLOAD_REVISE_TASK = "POST /reviseTask/downloadReviseTask";
 
 
     private FadadaApiClient fadadaApiClient;
@@ -86,5 +88,17 @@ public class ReviseTaskClient {
     public BaseRsp saveFillValues(SaveFillValuesReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, SAVE_FILL_VALUES, String.class);
+    }
+
+
+    /**
+     * 定稿任务下载
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp<DownLoadFileRsp> downloadReviseTask(DownloadReviseTaskReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPIDownload(req, DOWNLOAD_REVISE_TASK, DownLoadFileRsp.class);
     }
 }

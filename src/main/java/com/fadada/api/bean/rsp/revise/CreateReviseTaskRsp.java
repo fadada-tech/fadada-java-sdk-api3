@@ -18,6 +18,8 @@ public class CreateReviseTaskRsp extends BaseBean {
 
     public static class TaskFileInfo extends BaseBean {
         private String fileId;
+        private String templateFileId;
+        private String fileName;
 
         public String getFileId() {
             return fileId;
@@ -25,6 +27,22 @@ public class CreateReviseTaskRsp extends BaseBean {
 
         public void setFileId(String fileId) {
             this.fileId = fileId;
+        }
+
+        public String getTemplateFileId() {
+            return templateFileId;
+        }
+
+        public void setTemplateFileId(String templateFileId) {
+            this.templateFileId = templateFileId;
+        }
+
+        public String getFileName() {
+            return fileName;
+        }
+
+        public void setFileName(String fileName) {
+            this.fileName = fileName;
         }
     }
 

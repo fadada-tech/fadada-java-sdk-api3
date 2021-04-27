@@ -22,12 +22,22 @@ public class GetTemplateMainUrlReq extends BaseReq {
         @ParamsVerif(checkNotEmpty = true)
         private String templateId;
 
+        private String redirectUrl;
+
         public String getTemplateId() {
             return templateId;
         }
 
         public void setTemplateId(String templateId) {
             this.templateId = templateId;
+        }
+
+        public String getRedirectUrl() {
+            return redirectUrl;
+        }
+
+        public void setRedirectUrl(String redirectUrl) {
+            this.redirectUrl = redirectUrl;
         }
     }
 

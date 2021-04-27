@@ -68,12 +68,22 @@ public class CreateTaskByFileReq extends BaseReq {
         @ParamsVerif(checkNotEmpty = true)
         private String agentId;
 
+        private String unionId;
+
         public String getAgentId() {
             return agentId;
         }
 
         public void setAgentId(String agentId) {
             this.agentId = agentId;
+        }
+
+        public String getUnionId() {
+            return unionId;
+        }
+
+        public void setUnionId(String unionId) {
+            this.unionId = unionId;
         }
     }
 
@@ -126,6 +136,8 @@ public class CreateTaskByFileReq extends BaseReq {
         @ParamsVerif(checkNotNull = false)
         private ExternalSignerReq externalSigner;
 
+        private NoticeReq notice;
+
         /**
          * 签署区域
          */
@@ -172,6 +184,14 @@ public class CreateTaskByFileReq extends BaseReq {
 
         public void setSignOrder(Integer signOrder) {
             this.signOrder = signOrder;
+        }
+
+        public NoticeReq getNotice() {
+            return notice;
+        }
+
+        public void setNotice(NoticeReq notice) {
+            this.notice = notice;
         }
     }
 

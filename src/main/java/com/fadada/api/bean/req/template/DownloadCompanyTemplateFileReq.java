@@ -21,6 +21,16 @@ public class DownloadCompanyTemplateFileReq extends BaseReq {
         @ParamsVerif(checkNotEmpty = true)
         private String templateId;
 
+        private Integer downloadWay = 1;
+
+        public Integer getDownloadWay() {
+            return downloadWay;
+        }
+
+        public void setDownloadWay(Integer downloadWay) {
+            this.downloadWay = downloadWay;
+        }
+
         public String getTemplateId() {
             return templateId;
         }

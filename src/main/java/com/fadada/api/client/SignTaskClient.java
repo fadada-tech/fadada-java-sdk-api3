@@ -7,10 +7,12 @@ import com.fadada.api.bean.req.sign.draft.CreateTaskByDraftIdReq;
 import com.fadada.api.bean.req.sign.file.FileSignTaskReq;
 import com.fadada.api.bean.req.sign.template.CreateByDraftIdReq;
 import com.fadada.api.bean.rsp.BaseRsp;
+import com.fadada.api.bean.rsp.document.DownLoadFileRsp;
 import com.fadada.api.bean.rsp.sign.*;
 import com.fadada.api.bean.rsp.sign.batch.BatchCreateByDraftIdRsp;
 import com.fadada.api.bean.rsp.sign.batch.BatchGetSignUrlRsp;
 import com.fadada.api.bean.rsp.sign.batch.BatchGetSigntasksByBatchNoRsp;
+import com.fadada.api.bean.rsp.sign.batch.GetBatchSignUrlRsp;
 import com.fadada.api.exception.ApiException;
 import com.fadada.api.utils.PreconditionsUtil;
 
@@ -33,6 +35,7 @@ public class SignTaskClient {
     private static final String CREATE_TASK_BY_DRAFT_ID = "POST signtasks/createTaskByDraftId";
     private static final String UNLOCK = "POST signtasks/unlock";
     private static final String GET_QUICK_SIGN_URL = "POST signtasks/getQuickSignUrl";
+    private static final String DOWNLOAD_SIGN_TASK = "POST signtasks/downloadSignTask";
 
     /**
      * 批次号任务
@@ -42,6 +45,9 @@ public class SignTaskClient {
     private static final String BATCH_ADD_BY_DRAFT_ID = "POST batch/signtasks/addByDraftId";
     private static final String BATCH_GET_SIGN_URL = "POST batch/signtasks/getSignUrl";
     private static final String BATCH_GET_SIGNTASKS_BY_BATCH_NO = "POST batch/signtasks/getSigntasksByBatchNo";
+
+
+    private static final String GET_BATCH_SIGN_URL = "POST signtasks/batch/getBatchSignUrl";
 
     private FadadaApiClient fadadaApiClient;
 
@@ -242,6 +248,28 @@ public class SignTaskClient {
     public BaseRsp<GetQuickSignUrlRsp> getQuickSignUrl(GetQuickSignUrlReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPI(req, GET_QUICK_SIGN_URL, GetQuickSignUrlRsp.class);
+    }
+
+    /**
+     * 获取批量签链接
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp<GetBatchSignUrlRsp> getBatchSignUrl(GetBatchSignUrlReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, GET_BATCH_SIGN_URL, GetBatchSignUrlRsp.class);
+    }
+
+    /**
+     * 签署任务下载
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp<DownLoadFileRsp> downloadSignTask(DownloadSignTaskReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPIDownload(req, DOWNLOAD_SIGN_TASK, DownLoadFileRsp.class);
     }
 
 }
