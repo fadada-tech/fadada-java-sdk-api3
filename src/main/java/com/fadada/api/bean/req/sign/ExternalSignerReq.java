@@ -30,6 +30,7 @@ public class ExternalSignerReq extends BaseBean {
             this.corpName = corpName;
         }
     }
+
     @ParamsVerif
     public static class PersonInfoReq {
         private String idCardNo;

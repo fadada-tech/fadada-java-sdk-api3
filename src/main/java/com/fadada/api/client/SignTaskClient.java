@@ -8,6 +8,7 @@ import com.fadada.api.bean.req.sign.file.FileSignTaskReq;
 import com.fadada.api.bean.req.sign.template.CreateByDraftIdReq;
 import com.fadada.api.bean.rsp.BaseRsp;
 import com.fadada.api.bean.rsp.document.DownLoadFileRsp;
+import com.fadada.api.bean.rsp.seal.QuerySignTasksRsp;
 import com.fadada.api.bean.rsp.sign.*;
 import com.fadada.api.bean.rsp.sign.batch.BatchCreateByDraftIdRsp;
 import com.fadada.api.bean.rsp.sign.batch.BatchGetSignUrlRsp;
@@ -36,6 +37,8 @@ public class SignTaskClient {
     private static final String UNLOCK = "POST signtasks/unlock";
     private static final String GET_QUICK_SIGN_URL = "POST signtasks/getQuickSignUrl";
     private static final String DOWNLOAD_SIGN_TASK = "POST signtasks/downloadSignTask";
+    private static final String CHANGE_SIGNER = "POST signtasks/changeSigner";
+    private static final String QUERY_SIGN_TASKS = "POST signtasks/querySignTasks";
 
     /**
      * 批次号任务
@@ -160,6 +163,18 @@ public class SignTaskClient {
     }
 
     /**
+     * 签署任务节点变更
+     *
+     * @param req
+     * @return
+     * @throws ApiException
+     */
+    public BaseRsp<String> changeSigner(ChangeSignerReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, CHANGE_SIGNER, String.class);
+    }
+
+    /**
      * 依据草稿id批量创建签署任务
      *
      * @param req
@@ -270,6 +285,17 @@ public class SignTaskClient {
     public BaseRsp<DownLoadFileRsp> downloadSignTask(DownloadSignTaskReq req) throws ApiException {
         PreconditionsUtil.checkObject(req);
         return fadadaApiClient.invokeAPIDownload(req, DOWNLOAD_SIGN_TASK, DownLoadFileRsp.class);
+    }
+
+    /**
+     * 签署任务查询
+     *
+     * @param req
+     * @return
+     */
+    public BaseRsp<QuerySignTasksRsp> querySigntasks(QuerySignTasksReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, QUERY_SIGN_TASKS, QuerySignTasksRsp.class);
     }
 
 }

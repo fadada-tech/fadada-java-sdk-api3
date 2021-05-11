@@ -4,9 +4,6 @@ import com.fadada.api.bean.BaseBean;
 import com.fadada.api.bean.req.sign.CorpReq;
 import com.fadada.api.bean.req.sign.ExternalSignerReq;
 import com.fadada.api.bean.req.sign.SignatoryReq;
-import com.fadada.api.bean.req.sign.UnlockReq;
-
-import java.util.List;
 
 /**
  * @author yanghui

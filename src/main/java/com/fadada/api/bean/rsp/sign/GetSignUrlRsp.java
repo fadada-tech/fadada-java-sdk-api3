@@ -2,10 +2,6 @@ package com.fadada.api.bean.rsp.sign;
 
 
 import com.fadada.api.bean.BaseBean;
-import com.fadada.api.bean.req.sign.CreateTaskByFileReq;
-import com.fadada.api.bean.req.sign.file.SignerReq;
-import com.fadada.api.bean.req.sign.file.SignerReqV2;
-import com.fadada.api.bean.rsp.BaseRsp;
 import com.fadada.api.bean.rsp.MiniProgramConfig;
 
 import java.util.List;

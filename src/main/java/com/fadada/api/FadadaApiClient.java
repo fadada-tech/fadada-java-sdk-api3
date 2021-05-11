@@ -3,9 +3,6 @@ package com.fadada.api;
 import com.fadada.api.bean.req.BaseReq;
 import com.fadada.api.bean.rsp.BaseRsp;
 import com.fadada.api.exception.ApiException;
-import com.fadada.api.utils.http.HttpUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.List;

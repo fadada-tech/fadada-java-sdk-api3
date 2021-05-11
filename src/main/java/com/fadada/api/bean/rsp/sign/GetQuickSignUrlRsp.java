@@ -1,7 +1,6 @@
 package com.fadada.api.bean.rsp.sign;
 
 import com.fadada.api.bean.BaseBean;
-import com.fadada.api.bean.req.sign.ExternalSignerReq;
 import com.fadada.api.bean.req.sign.template.ExternalSigner;
 import com.fadada.api.bean.rsp.BaseRsp;
 

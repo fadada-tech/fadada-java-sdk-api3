@@ -24,6 +24,7 @@ public class AccountClient {
 
     private static final String GET_FILE_BASE64 = "POST accounts/getFileBase64";
     private static final String GET_UNION_IDS = "POST accounts/getUnionIds";
+    private static final String GET_MODIFY_MOBILE_URL = "POST accounts/getModifyMobileUrl";
 
 
     private static final String GET_RECHARGE_CENTER_URL = "POST accounts/getRechargeCenterUrl";
@@ -184,15 +185,26 @@ public class AccountClient {
     }
 
 
-//    /**
-//     * 获取充值中心链接
-//     *
-//     * @return
-//     */
-//    public BaseRsp<GetRechargeCenterUrlRsp> getRechargeCenterUrl(GetRechargeCenterUrlReq req) throws ApiException {
-//        PreconditionsUtil.checkObject(req);
-//        return fadadaApiClient.invokeAPI(req, GET_RECHARGE_CENTER_URL, GetRechargeCenterUrlRsp.class);
-//    }
+    /**
+     * 手机号码变更
+     *
+     * @return
+     */
+    public BaseRsp<GetModifyMobileUrlRsp> getModifyMobileUrl(GetModifyMobileUrlReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, GET_MODIFY_MOBILE_URL, GetModifyMobileUrlRsp.class);
+    }
+
+
+    /**
+     * 获取充值中心链接
+     *
+     * @return
+     */
+    public BaseRsp<GetRechargeCenterUrlRsp> getRechargeCenterUrl(GetRechargeCenterUrlReq req) throws ApiException {
+        PreconditionsUtil.checkObject(req);
+        return fadadaApiClient.invokeAPI(req, GET_RECHARGE_CENTER_URL, GetRechargeCenterUrlRsp.class);
+    }
 
     /**
      * 获取统一个人实名+企业实名地址

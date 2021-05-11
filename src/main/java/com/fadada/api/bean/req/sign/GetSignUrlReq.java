@@ -8,6 +8,7 @@ import com.fadada.api.bean.req.BaseReq;
  * @className GetSignUrlReq
  * @description 获取签署链接请求对象
  * @createTime 2020年8月13日 15:27:43
+ * @version 1.4.0
  */
 @ParamsVerif
 public class GetSignUrlReq extends BaseReq {
@@ -17,6 +18,8 @@ public class GetSignUrlReq extends BaseReq {
     private String unionId;
 
     private String redirectUrl;
+
+    private String modifyUrl;
 
     @ParamsVerif(checkNotNull = false, intContains = {0, 1})
     private Integer miniProgramSign;
@@ -51,5 +54,13 @@ public class GetSignUrlReq extends BaseReq {
 
     public void setMiniProgramSign(Integer miniProgramSign) {
         this.miniProgramSign = miniProgramSign;
+    }
+
+    public String getModifyUrl() {
+        return modifyUrl;
+    }
+
+    public void setModifyUrl(String modifyUrl) {
+        this.modifyUrl = modifyUrl;
     }
 }

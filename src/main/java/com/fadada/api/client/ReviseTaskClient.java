@@ -20,12 +20,12 @@ import com.fadada.api.utils.PreconditionsUtil;
  */
 public class ReviseTaskClient {
 
-    private static final String CREATE_REVISE_TASK = "POST /reviseTask/createReviseTask";
-    private static final String GET_FILL_FILE_URL = "POST /reviseTask/getFillFileUrl";
-    private static final String CANCEL_REVISE_TASK = "POST /reviseTask/cancelReviseTask";
-    private static final String REVISE_TASK_DETAIL = "POST /reviseTask/reviseTaskDetail";
-    private static final String SAVE_FILL_VALUES = "POST /reviseTask/saveFillValues";
-    private static final String DOWNLOAD_REVISE_TASK = "POST /reviseTask/downloadReviseTask";
+    private static final String CREATE_REVISE_TASK = "POST reviseTask/createReviseTask";
+    private static final String GET_FILL_FILE_URL = "POST reviseTask/getFillFileUrl";
+    private static final String CANCEL_REVISE_TASK = "POST reviseTask/cancelReviseTask";
+    private static final String REVISE_TASK_DETAIL = "POST reviseTask/reviseTaskDetail";
+    private static final String SAVE_FILL_VALUES = "POST reviseTask/saveFillValues";
+    private static final String DOWNLOAD_REVISE_TASK = "POST reviseTask/downloadReviseTask";
 
 
     private FadadaApiClient fadadaApiClient;
